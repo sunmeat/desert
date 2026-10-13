@@ -196,7 +196,6 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
   .lightbox-close { top: 15px; right: 15px; }
 }
 
-
 .header-tools { display: flex; align-items: center; gap: 14px; }
 .language-switch { display: flex; align-items: center; gap: 3px; padding: 4px; border: 1px solid rgba(242, 240, 232, .18); border-radius: 999px; background: rgba(10, 13, 11, .42); backdrop-filter: blur(18px); }
 .language-switch button { min-width: 32px; height: 27px; padding: 0 7px; border: 0; border-radius: 999px; background: transparent; color: rgba(242, 240, 232, .68); font-size: 9px; font-weight: 700; letter-spacing: .05em; transition: background .2s, color .2s; }
@@ -208,8 +207,6 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
   .language-switch button { min-width: 29px; height: 27px; padding: 0 5px; font-size: 8px; }
 }
 
-
-/* Fixed glass navigation stays visible while browsing the collection. */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding: 16px clamp(22px, 5vw, 76px); background: rgba(8, 10, 9, .76); border-bottom: 1px solid rgba(242, 240, 232, .1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 .hero { padding-top: 105px; }
 .language-switch button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-width: 47px; padding: 0 9px; }
@@ -224,7 +221,6 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
   .language-switch button span:last-child { font-size: 8px; }
 }
 
-/* Keep the fixed header above every page section and image layer. */
 .site-header {
   position: fixed !important;
   inset: 0 0 auto 0;
