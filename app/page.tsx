@@ -199,7 +199,7 @@ const gallery = [
 ]
 
 export default function Page() {
-  const [locale, setLocale] = useState<Locale>('ru')
+  const [locale, setLocale] = useState<Locale>('pt')
   const [isPlaying, setIsPlaying] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -233,7 +233,7 @@ export default function Page() {
           </nav>
           <div className="header-tools">
             <div className="language-switch" aria-label="Choose language">
-              {(['pt', 'ru', 'en'] as Locale[]).map((code) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-pressed={locale === code} onClick={() => setLocale(code)}>{code.toUpperCase()}</button>)}
+              {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => setLocale(code)}><span aria-hidden="true">{flag}</span><span>{code.toUpperCase()}</span></button>)}
             </div>
             <button className="menu-button" aria-label={t.menu}><Menu /></button>
           </div>
