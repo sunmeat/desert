@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-**Rosas do Deserto** é um espaço digital dedicado à beleza singular dos adeniums, plantas conhecidas por seus troncos esculturais, raízes expressivas e flores de cores marcantes. O projeto apresenta a coleção de Natanael Ferreira, em Alagoas, Brasil, por meio de uma experiência visual contemporânea, elegante e acolhedora.
+**Rosas do Deserto** é um espaço digital dedicado à beleza singular dos adeniums, plantas conhecidas por seus troncos esculturais, raízes expressivas e flores de cores marcantes. O projeto apresenta uma coleção particular de rosas-do-deserto, por meio de uma experiência visual contemporânea, elegante e acolhedora.
 
 A proposta combina fotografia botânica, uma identidade visual escura e sofisticada, tipografia editorial e pequenos detalhes de interação. O resultado é uma galeria que deixa as plantas ocuparem o centro do palco: cada flor, pétala e forma recebe espaço para ser apreciada.
 
@@ -169,7 +169,7 @@ Feito para celebrar a beleza singular das rosas-do-deserto e transformar uma col
 [![React](https://img.shields.io/badge/React-19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-**Rosas do Deserto** это цифровое пространство, посвящённое необыкновенной красоте адениумов, растений с выразительными стволами, скульптурными корнями и яркими цветами. Проект представляет коллекцию Натаниэля Феррейры из штата Алагоас, Бразилия, в современной, элегантной и уютной визуальной форме.
+**Rosas do Deserto** это цифровое пространство, посвящённое необыкновенной красоте адениумов, растений с выразительными стволами, скульптурными корнями и яркими цветами. Проект представляет частную коллекцию из штата Алагоас, Бразилия, в современной, элегантной и уютной визуальной форме.
 
 В основе проекта лежат ботаническая фотография, глубокая тёмная палитра, редакционная типографика и деликатные интерактивные детали. Это галерея, в которой главными остаются сами растения: каждому цветку, лепестку и силуэту отведено пространство для созерцания.
 
@@ -316,4 +316,4 @@ public/
 
 ---
 
-Создано, чтобы подчеркнуть неповторимую красоту пустынных роз и превратить коллекцию растений в цифровое ботаническое пространство. 🌱
+Сайт на заказ, созданный для того, чтобы подчеркнуть красоту пустынных роз и представить частную коллекцию в цифровом ботаническом пространстве. 🌱
