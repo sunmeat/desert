@@ -2,13 +2,14 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
-import { ArrowDown, ArrowLeft, ArrowRight, Camera, Mail, Menu, Pause, Play, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, Camera, Menu, Pause, Play, X } from 'lucide-react'
 
 const content = {
   grower: 'Небольшая коллекция, выращенная вручную',
-  instagram: '@ВАШ_INSTAGRAM',
-  whatsapp: '+55 (00) 00000-0000',
-  email: 'ваша-почта@example.com',
+  instagram: '@natan_ferreira002',
+  instagramUrl: 'https://www.instagram.com/natan_ferreira002/',
+  whatsapp: '+55 82 98211 0203',
+  whatsappUrl: 'https://wa.me/5582982110203',
 }
 
 const gallery = [
@@ -71,9 +72,9 @@ export default function Page() {
 
       <section className="future section-pad"><div className="future-inner"><p className="eyebrow">Сад продолжает расти</p><h2>Возможно, одна из них<br /><em>станет вашей.</em></h2><p>Коллекция пополняется. В будущем некоторые растения, возможно, будут искать новый дом.</p><a className="button button-dark" href="#contato">Связаться со мной <span>↗</span></a></div></section>
 
-      <section className="instagram section-pad"><div className="section-kicker"><span>05</span><span>Следите за коллекцией</span></div><div className="instagram-heading"><h2>Больше цветов<br /><em>каждый день.</em></h2><a className="text-link dark" href="#contato"><Camera /> {content.instagram}</a></div><div className="social-grid">{gallery.map((item, index) => <button key={item.src} onClick={() => setLightboxIndex(index)}><Image src={item.src} alt={item.alt} fill sizes="25vw" /></button>)}</div><a className="button button-outline" href="#contato">Смотреть в Instagram <span>↗</span></a></section>
+      <section className="instagram section-pad"><div className="section-kicker"><span>05</span><span>Следите за коллекцией</span></div><div className="instagram-heading"><h2>Больше цветов<br /><em>каждый день.</em></h2><a className="text-link dark" href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /> {content.instagram}</a></div><div className="social-grid">{gallery.map((item, index) => <button key={item.src} onClick={() => setLightboxIndex(index)}><Image src={item.src} alt={item.alt} fill sizes="25vw" /></button>)}</div><a className="button button-outline" href={content.instagramUrl} target="_blank" rel="noreferrer">Открыть Instagram <span>↗</span></a></section>
 
-      <footer className="footer section-pad" id="contato"><div className="footer-top"><div><p className="eyebrow">Давайте познакомимся поближе</p><h2>Хотите узнать<br /><em>больше?</em></h2></div><p className="footer-intro">Следить за коллекцией, обсудить выращивание или просто поздороваться.</p></div><div className="contact-links"><a href="#contato"><Camera /><span>Instagram<small>{content.instagram}</small></span></a><a href="#contato"><span className="contact-icon">◌</span><span>WhatsApp<small>{content.whatsapp}</small></span></a><a href={`mailto:${content.email}`}><Mail /><span>Электронная почта<small>{content.email}</small></span></a></div><div className="footer-bottom"><span>Розы пустыни · Бразилия</span><span>Создано с терпением и заботой <b>✳</b></span></div></footer>
+      <footer className="footer section-pad" id="contato"><div className="footer-top"><div><p className="eyebrow">Давайте познакомимся поближе</p><h2>Хотите узнать<br /><em>больше?</em></h2></div><p className="footer-intro">Следить за коллекцией, обсудить выращивание или просто поздороваться.</p></div><div className="contact-links"><a href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /><span>Instagram<small>{content.instagram}</small></span></a><a href={content.whatsappUrl} target="_blank" rel="noreferrer"><span className="contact-icon">◌</span><span>WhatsApp<small>{content.whatsapp}</small></span></a></div><div className="footer-bottom"><span>Розы пустыни · Бразилия</span><span>Создано с терпением и заботой <b>✳</b></span></div></footer>
 
       {lightboxIndex !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label="Галерея фотографий" onClick={() => setLightboxIndex(null)}><button className="lightbox-close" onClick={() => setLightboxIndex(null)} aria-label="Закрыть галерею"><X /></button><button className="lightbox-arrow left" onClick={(event) => { event.stopPropagation(); moveLightbox(-1) }} aria-label="Предыдущее изображение"><ArrowLeft /></button><div className="lightbox-image" onClick={(event) => event.stopPropagation()}><Image src={gallery[lightboxIndex].src} alt={gallery[lightboxIndex].alt} fill sizes="90vw" /><p>{gallery[lightboxIndex].caption}</p></div><button className="lightbox-arrow right" onClick={(event) => { event.stopPropagation(); moveLightbox(1) }} aria-label="Следующее изображение"><ArrowRight /></button></div>}
     </main>
