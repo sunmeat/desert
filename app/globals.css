@@ -195,3 +195,15 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
   .lightbox-arrow.right { right: 8px; }
   .lightbox-close { top: 15px; right: 15px; }
 }
+
+
+.header-tools { display: flex; align-items: center; gap: 14px; }
+.language-switch { display: flex; align-items: center; gap: 3px; padding: 4px; border: 1px solid rgba(242, 240, 232, .18); border-radius: 999px; background: rgba(10, 13, 11, .42); backdrop-filter: blur(18px); }
+.language-switch button { min-width: 32px; height: 27px; padding: 0 7px; border: 0; border-radius: 999px; background: transparent; color: rgba(242, 240, 232, .68); font-size: 9px; font-weight: 700; letter-spacing: .05em; transition: background .2s, color .2s; }
+.language-switch button:hover { color: var(--rose-hot); }
+.language-switch button.active { background: var(--rose); color: #1b1212; }
+@media (max-width: 700px) {
+  .header-tools { gap: 8px; }
+  .language-switch { gap: 1px; padding: 3px; }
+  .language-switch button { min-width: 29px; height: 27px; padding: 0 5px; font-size: 8px; }
+}
