@@ -198,6 +198,17 @@ const gallery = [
   '/images/photo_2026-10-02_00-09-57.jpg',
 ]
 
+
+function FlagIcon({ code }: { code: Locale }) {
+  if (code === 'pt') {
+    return <svg className="language-flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#009739" /><path d="M12 2 21 8 12 14 3 8Z" fill="#FFDF00" /><circle cx="12" cy="8" r="3.2" fill="#002776" /></svg>
+  }
+  if (code === 'ru') {
+    return <svg className="language-flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#fff" /><path d="M0 5.33H24V10.66H0Z" fill="#0039A6" /><path d="M0 10.66H24V16H0Z" fill="#D52B1E" /></svg>
+  }
+  return <svg className="language-flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#fff" /><path d="M0 0H24V2H0ZM0 4H24V6H0ZM0 8H24V10H0ZM0 12H24V14H0Z" fill="#B22234" /><rect width="10.5" height="8.5" rx="1" fill="#3C3B6E" /></svg>
+}
+
 export default function Page() {
   const [locale, setLocale] = useState<Locale>('pt')
   const [isPlaying, setIsPlaying] = useState(false)
@@ -223,21 +234,22 @@ export default function Page() {
   return (
     <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale}>
       <audio ref={audioRef} loop src="/audio/atmosfera-placeholder.wav" aria-label={t.play} />
+      <header className="site-header">
+        <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>{t.brand}</span></a>
+        <nav className="desktop-nav" aria-label={t.menu}>
+          <a href="#colecao">{t.nav[0]}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
+        </nav>
+        <div className="header-tools">
+          <div className="language-switch" aria-label="Choose language">
+            {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => setLocale(code)}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
+          </div>
+          <button className="menu-button" aria-label={t.menu}><Menu /></button>
+        </div>
+      </header>
       <section className="hero" id="inicio">
         <Image className="hero-image" src={gallery[0]} alt={t.altHero} fill priority sizes="100vw" />
         <div className="hero-shade" />
-        <header className="site-header">
-          <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>{t.brand}</span></a>
-          <nav className="desktop-nav" aria-label={t.menu}>
-            <a href="#colecao">{t.nav[0]}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
-          </nav>
-          <div className="header-tools">
-            <div className="language-switch" aria-label="Choose language">
-              {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => setLocale(code)}><span aria-hidden="true">{flag}</span><span>{code.toUpperCase()}</span></button>)}
-            </div>
-            <button className="menu-button" aria-label={t.menu}><Menu /></button>
-          </div>
-        </header>
+
         <div className="hero-content">
           <p className="eyebrow light">{t.heroEyebrow}</p>
           <h1>{t.heroTitle}</h1>
