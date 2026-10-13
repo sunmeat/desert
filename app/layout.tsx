@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Розы пустыни | Коллекция, выращивание и цветение',
-  description: 'Коллекция роз пустыни, выращенных с терпением, заботой и любовью в Бразилии.',
+  title: 'Natanael Ferreira | Rosas do Deserto',
+  description: 'Uma coleção pessoal de rosas do deserto em Alagoas, Brasil, unindo natureza, contemplação e filosofia.'
   generator: 'v0.app',
   icons: {
     icon: [
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru">
+    <html lang="pt-BR">
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
