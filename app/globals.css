@@ -223,3 +223,23 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
   .language-switch button span:first-child { font-size: 12px; }
   .language-switch button span:last-child { font-size: 8px; }
 }
+
+/* Keep the fixed header above every page section and image layer. */
+.site-header {
+  position: fixed !important;
+  inset: 0 0 auto 0;
+  z-index: 9999 !important;
+  isolation: isolate;
+}
+.language-switch button .language-flag {
+  display: block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.18);
+}
+@media (max-width: 700px) {
+  .language-switch button .language-flag { width: 18px; height: 12px; }
+}
