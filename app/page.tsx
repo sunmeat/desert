@@ -48,7 +48,7 @@ export default function Page() {
         <div className="hero-shade" />
         <header className="site-header">
           <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>Розы<br /><i>пустыни</i></span></a>
-          <nav className="desktop-nav" aria-label="Основная навигация"><a href="#colecao">Коллекция</a><a href="#natanael">О Натаниэле</a><a href="#cultivo">Выращивание</a><a href="#contato">Контакты</a></nav>
+          <nav className="desktop-nav" aria-label="Основная навигация"><a href="#colecao">Коллекция</a><a href="#natanael">О Натаниэле</a><a href="#natanael">О Натаниэле</a><a href="#contato">Контакты</a></nav>
           <button className="menu-button" aria-label="Открыть меню"><Menu /></button>
         </header>
         <div className="hero-content">
@@ -60,7 +60,7 @@ export default function Page() {
         <div className="hero-bottom"><span>Красота, которая растёт не спеша.</span><button className="audio-button" onClick={toggleAudio} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} {isPlaying ? 'Поставить на паузу' : 'Включить атмосферу'}</button></div>
       </section>
 
-      <section className="intro section-pad"><div className="section-kicker"><span>01</span><span>В чём особенность</span></div><div className="intro-grid"><h2>Больше,<br /><em>чем цветок.</em></h2><div className="intro-copy"><p className="lead">Роза пустыни — растение с характером. Редкая встреча силы земли и нежности цветка.</p><p>Каудекс, открытые корни, ветви и цветы складываются в живую скульптуру. Каждая неповторима, ведь у каждого растения свой путь роста.</p><a className="text-link dark" href="#cultivo">Узнать о выращивании <span>↗</span></a></div></div></section>
+      <section className="intro section-pad"><div className="section-kicker"><span>01</span><span>В чём особенность</span></div><div className="intro-grid"><h2>Больше,<br /><em>чем цветок.</em></h2><div className="intro-copy"><p className="lead">Роза пустыни — растение с характером. Редкая встреча силы земли и нежности цветка.</p><p>Каудекс, открытые корни, ветви и цветы складываются в живую скульптуру. Каждая неповторима, ведь у каждого растения свой путь роста.</p><a className="text-link dark" href="#natanael">О Натаниэле <span>↗</span></a></div></div></section>
 
       <section className="collection section-pad" id="colecao"><div className="section-kicker"><span>02</span><span>Коллекция</span></div><div className="collection-heading"><h2>Формы,<br /><em>которые не повторяются.</em></h2><p>Одни цветы появляются тихо. Другие расцветают с размахом тех, кто научился ждать.</p></div><div className="editorial-gallery" id="galeria">{gallery.slice(1).map((item, index) => <button key={item.src} className={`gallery-tile tile-${index + 1}`} onClick={() => setLightboxIndex(index + 1)}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 50vw" /><span>{item.caption}</span></button>)}</div><div className="gallery-note">Нажмите на фотографию, чтобы заглянуть в сад <span>↗</span></div></section>
 
