@@ -168,3 +168,11 @@
 .silence-sound-button>span:nth-child(2){max-width:100%;overflow-wrap:anywhere}
 @media(max-width:1000px){.silence-sound-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.silence-sound-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.silence-sound-button{min-height:94px;padding:13px;font-size:10px}}
+
+
+.silence-modal{overflow-anchor:none;scroll-behavior:auto}
+.silence-sound-grid{overflow-anchor:none}
+.silence-audio-credits{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;padding:0 22px 28px;color:var(--muted-dark);font-size:9px;line-height:1.6}
+.silence-audio-credits a{color:var(--muted-dark);text-decoration:underline;text-decoration-color:rgba(167,197,154,.25);text-underline-offset:3px}
+.silence-audio-credits a:hover{color:var(--green)}
+@media(max-width:700px){.silence-audio-credits{gap:8px 12px;padding:0 16px 22px;font-size:8px}}
