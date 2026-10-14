@@ -22,7 +22,6 @@ const translations = {
     heroTitle: <>Выращены<br /><em>под солнцем.</em></>,
     heroSubtitle: 'Коллекция роз пустыни, выращенных в Бразилии с терпением, заботой и любовью.',
     collectionButton: 'Открыть коллекцию',
-    galleryLink: 'Смотреть галерею',
     heroFooter: 'Красота, которая растёт не спеша.',
     play: 'Включить атмосферу',
     pause: 'Поставить на паузу',
@@ -79,7 +78,6 @@ const translations = {
     heroTitle: <>Cultivadas<br /><em>sob o sol.</em></>,
     heroSubtitle: 'Rosas do deserto cultivadas no Brasil com paciência, cuidado e carinho.',
     collectionButton: 'Conheça a coleção',
-    galleryLink: 'Explorar a galeria',
     heroFooter: 'A beleza cresce sem pressa.',
     play: 'Ouvir a atmosfera',
     pause: 'Pausar a música',
@@ -136,7 +134,6 @@ const translations = {
     heroTitle: <>Grown<br /><em>under the sun.</em></>,
     heroSubtitle: 'Desert roses grown in Brazil with patience, care, and love.',
     collectionButton: 'Explore the collection',
-    galleryLink: 'View the gallery',
     heroFooter: 'Beauty grows at its own pace.',
     play: 'Play atmosphere',
     pause: 'Pause music',
@@ -318,7 +315,7 @@ export default function Page() {
           <p className="eyebrow light">{t.heroEyebrow}</p>
           <h1>{t.heroTitle}</h1>
           <p className="hero-subtitle">{t.heroSubtitle}</p>
-          <div className="hero-actions"><a className="button button-light" href="#colecao">{t.collectionButton} <ArrowDown /></a><a className="text-link light" href="#galeria">{t.galleryLink} <span>↗</span></a></div>
+          <div className="hero-actions"><a className="button button-light" href="#colecao">{t.collectionButton} <ArrowDown /></a></div>
         </div>
         <div className="hero-bottom"><span>{t.heroFooter}</span></div>
         <audio ref={audioRef} onEnded={() => { void playRandomTrack() }} onPause={() => setIsPlaying(false)} onPlay={() => setIsPlaying(true)} preload="none" />
