@@ -307,6 +307,7 @@ export default function Page() {
 
   return (
     <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale}>
+      <title>{pageTitles[locale]}</title>
       <header className="site-header">
         <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>{t.brand}</span></a>
         <nav className="desktop-nav" aria-label={t.menu}>
