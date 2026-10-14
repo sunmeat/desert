@@ -209,8 +209,8 @@ const copy = {
   en: { soundEyebrow: 'SOUNDS OF NATURE', footerLine: 'PAUSE · CARE · PRESENCE', brand: 'DESERT ROSES', title: 'Garden of thoughts', subtitle: 'A small place to slow down.', invitation: 'Sometimes it is enough to simply be here.', day: 'Reflection of the day', next: 'Another reflection', sounds: 'Soundscape', rain: 'Rain', birds: 'Birdsong', wind: 'Wind', exit: 'Leave the garden', hint: 'Real nature recordings. Combine tracks and let each one loop while active.', open: 'Enter the garden of thoughts', kicker: 'A place to pause', intro: 'On patience, care, and time' }
 }
 
-export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
-  const [isOpen, setIsOpen] = useState(false)
+export default function SilenceGarden({ locale = 'pt', standalone = false }: { locale?: Locale; standalone?: boolean }) {
+  const [isOpen, setIsOpen] = useState(standalone)
   const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * 50))
   const [activeSounds, setActiveSounds] = useState<SoundKey[]>([])
   const [soundOrder, setSoundOrder] = useState<SoundKey[]>(soundKeys)
@@ -259,8 +259,9 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
 
   const closeGarden = useCallback(() => {
     stopAllSounds()
-    setIsOpen(false)
-  }, [stopAllSounds])
+    if (standalone) window.location.href = '/'
+    else setIsOpen(false)
+  }, [stopAllSounds, standalone])
 
   useEffect(() => {
     if (!isOpen) return
@@ -296,7 +297,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
 
   return (
     <>
-      <section className="silence-invitation section-pad" aria-labelledby="silence-invitation-title">
+      {!standalone && <section className="silence-invitation section-pad" aria-labelledby="silence-invitation-title">
         <div className="silence-invitation-inner">
           <span className="silence-orbit" aria-hidden="true"><Leaf /></span>
           <p className="eyebrow">{t.kicker}</p>
@@ -304,17 +305,16 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
           <p>{t.intro}</p>
           <button type="button" className="silence-enter-button" onClick={enterGarden}>{t.open}<span aria-hidden="true">↗</span></button>
         </div>
-      </section>
-      {isOpen && <div className="silence-modal" role="dialog" aria-modal="true" aria-labelledby="silence-title">
+      </section>}
+      {isOpen && <div className={'silence-modal' + (standalone ? ' silence-standalone' : '')} role="dialog" aria-modal="true" aria-labelledby="silence-title">
         <div className="silence-modal-backdrop" aria-hidden="true" />
         <div className="silence-modal-content">
           <header className="silence-modal-header">
             <a className="brand silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><span className="brand-mark" aria-hidden="true">🌺</span><span>{locale === 'ru' ? <>Розы<br /><i>пустыни</i></> : locale === 'en' ? <>Desert<br /><i>roses</i></> : <>Rosas<br /><i>do deserto</i></>}</span></a>
-            <span className="silence-live-mark"><span /> {t.invitation}</span>
             <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
           </header>
           <div className="silence-main">
-            <div className="silence-title-block"><p className="eyebrow"><span>✳</span> 07 · {t.kicker}</p><h2 id="silence-title">{t.title.split(' ').slice(0, -1).join(' ')} <em>{t.title.split(' ').slice(-1)}</em></h2><p>{t.subtitle}</p></div>
+            <div className="silence-title-block"><h2 id="silence-title">{t.title.split(' ').slice(0, -1).join(' ')} <em>{t.title.split(' ').slice(-1)}</em></h2><p>{t.subtitle}</p></div>
             <section className="silence-quote-panel" aria-live="polite">
               <span className="silence-quote-mark">“</span>
               <p className="silence-quote-label">{t.day} · {String(quoteIndex + 1).padStart(2, '0')} / 50</p>
