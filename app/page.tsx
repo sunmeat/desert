@@ -237,7 +237,7 @@ export default function Page() {
     {
       title: 'O Urubu e o Gavião',
       artist: 'Pixinguinha (1930)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pixinguinha-_%20O_Urubu_e_o_Gaviao_1930.ogg',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pixinguinha-_O_Urubu_e_o_Gaviao_1930.ogg',
     },
     {
       title: 'Samba de fato',
