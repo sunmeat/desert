@@ -298,7 +298,7 @@ export default function Page() {
     <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale}>
       <title>{pageTitles[locale]}</title>
       <header className="site-header">
-        <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>{t.brand}</span></a>
+        <a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true">🌺</span><span>{t.brand}</span></a>
         <nav className="desktop-nav" aria-label={t.menu}>
           <a href="#colecao">{t.nav[0]}</a><a href="#atlas-floracao">{locale === 'pt' ? 'Atlas da floração' : locale === 'ru' ? 'Атлас цветения' : 'Bloom atlas'}</a><a href="#calendario-cuidados">{locale === 'pt' ? 'Cuidados' : locale === 'ru' ? 'Уход' : 'Care calendar'}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
         </nav>
