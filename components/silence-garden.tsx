@@ -187,7 +187,9 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   thunder: { src:'https://orangefreesounds.com/wp-content/uploads/2022/08/Rain-and-thunder-with-ocean-waves-sound-effect.mp3', credit:'Rain and Thunder with Ocean Waves · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/rain-and-thunder-with-ocean-waves-sound-effect/' },
   meadow: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Relaxing-evening-meadow-ambience-sound-effect.mp3', credit:'Relaxing Evening Meadow Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/relaxing-evening-meadow-ambience-sound-effect/' },
   morning: { src:'https://orangefreesounds.com/wp-content/uploads/2026/06/Bird-singing-and-forest-stream-sound-effect.mp3', credit:'Bird Singing and Forest Stream · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/bird-singing-and-forest-stream-sound-effect/' },
-  springForest: { src:'https://orangefreesounds.com/wp-content/uploads/2020/03/Spring-forest-ambience.mp3', credit:'Spring Forest Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-forest-ambience/' }
+  springForest: { src:'https://orangefreesounds.com/wp-content/uploads/2020/03/Spring-forest-ambience.mp3', credit:'Spring Forest Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-forest-ambience/' },
+  springGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Spring-garden-ambience-with-bees-birds-and-insects-sound-effect.mp3', credit:'Spring Garden Ambience With Bees, Birds And Insects · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-garden-ambience-with-bees-birds-and-insects-sound-effect/' },
+  rainforest: { src:'https://orangefreesounds.com/wp-content/uploads/2016/04/Rainforest-sounds.mp3', credit:'Rainforest Sounds · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/rainforest-sounds/' }
 }
 
 const copy = {
