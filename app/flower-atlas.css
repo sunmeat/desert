@@ -53,3 +53,31 @@
 @media(max-width:1050px){.atlas-tools{align-items:start;flex-direction:column}.atlas-selects{width:100%}.atlas-selects label{flex:1}.atlas-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.atlas-heading{grid-template-columns:1fr;gap:27px;margin:48px 0 42px}.atlas-heading h2{font-size:clamp(52px,14vw,78px)}.atlas-tools{gap:25px}.atlas-swatches{gap:16px 14px}.atlas-swatch{min-width:43px}.atlas-color-dot,.atlas-all-swatch{width:27px;height:27px}.atlas-selects{gap:9px}.atlas-selects label{min-width:0}.atlas-selects select{padding:11px 24px 11px 8px;font-size:9px}.atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 10px}.atlas-image-button{aspect-ratio:4/4.9}.atlas-card-info{padding:12px 7px 10px;gap:5px}.atlas-card-name{font-size:14px}.atlas-card-description{font-size:9px}.atlas-select-button{width:26px;height:26px;flex-basis:26px}.atlas-bottom{align-items:start;flex-direction:column;gap:10px}.atlas-bottom>span{text-align:left}.atlas-compare-items{grid-template-columns:1fr}.atlas-compare-panel{padding:15px}.atlas-compare-photo{aspect-ratio:4/3}.atlas-compare-item-copy{padding:16px}.atlas-modal{grid-template-columns:1fr;width:min(480px,100%)}.atlas-modal>img{height:280px;min-height:0}.atlas-modal-copy{padding:25px}}
 @media(prefers-reduced-motion:reduce){.atlas-image-button img,.atlas-color-dot,.atlas-all-swatch,.atlas-select-button{transition:none}}
+
+
+.care-section{position:relative;overflow:hidden;background:linear-gradient(180deg,#0a0d0b,#111713 48%,#0c100d)}
+.care-kicker{position:relative;z-index:1}.care-heading{display:grid;grid-template-columns:1.1fr .65fr;gap:clamp(35px,8vw,130px);align-items:end;margin:62px 0 55px}
+.care-eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 22px;color:var(--rose);text-transform:uppercase;letter-spacing:.16em;font-size:9px;font-weight:700}
+.care-heading h2{font-size:clamp(54px,7.7vw,108px);line-height:.98}.care-heading h2 em{color:var(--rose)}
+.care-intro{max-width:400px;margin:0 0 7px;color:var(--muted);font-size:13px;line-height:1.95}
+.care-season-switch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+.care-season-switch button{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:19px 16px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,22px);transition:background .2s,color .2s}
+.care-season-switch button:last-child{border-right:0}.care-season-switch button span{font-family:'DM Sans',sans-serif;font-size:9px;color:var(--muted-dark)}
+.care-season-switch button:hover,.care-season-switch button.active{background:rgba(232,155,159,.08);color:var(--rose)}
+.care-season-switch button.active span{color:var(--rose)}
+.care-season-summary{display:grid;grid-template-columns:68px minmax(160px,.65fr) minmax(0,1.35fr);align-items:center;gap:22px;padding:30px 0;border-bottom:1px solid var(--line)}
+.care-season-number{font-family:'Playfair Display',serif;font-size:42px;color:var(--rose);opacity:.8}
+.care-season-summary h3{margin:0 0 5px;font-family:'Playfair Display',serif;font-weight:400;font-size:26px}
+.care-season-summary>div>p{margin:0;color:var(--muted);font-size:11px}
+.care-season-note{padding-left:24px;border-left:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.8}
+.care-task-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.care-task{min-width:0;padding:22px 20px 24px;border:1px solid var(--line);background:rgba(255,255,255,.012);animation:care-enter .35s ease both}
+.care-task:nth-child(2){animation-delay:.04s}.care-task:nth-child(3){animation-delay:.08s}.care-task:nth-child(4){animation-delay:.12s}
+@keyframes care-enter{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.care-task-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;color:var(--rose)}.care-task-top span{font-size:9px;color:var(--muted-dark);letter-spacing:.1em}
+.care-task h4{margin:0 0 12px;color:var(--text);font-family:'Playfair Display',serif;font-size:19px;font-weight:400;line-height:1.3}
+.care-task p{margin:0;color:var(--muted);font-size:11px;line-height:1.85}
+.care-footnote{display:flex;align-items:start;gap:11px;margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--sand);font-size:12px;line-height:1.7}.care-footnote span{color:var(--rose)}
+@media(max-width:1000px){.care-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.care-task{padding:20px}.care-heading{grid-template-columns:1fr .8fr;gap:35px}.care-season-summary{grid-template-columns:55px minmax(145px,.8fr) minmax(0,1.2fr);gap:15px}}
+@media(max-width:700px){.care-heading{grid-template-columns:1fr;gap:25px;margin:48px 0 38px}.care-heading h2{font-size:clamp(49px,13vw,76px)}.care-season-switch button{flex-direction:column;align-items:flex-start;gap:8px;padding:13px 9px;font-size:14px}.care-season-summary{grid-template-columns:45px 1fr;gap:13px;padding:23px 0}.care-season-number{font-size:32px}.care-season-summary h3{font-size:23px}.care-season-note{grid-column:1/-1;padding:15px 0 0;border-left:0;border-top:1px solid var(--line)}.care-task-grid{grid-template-columns:1fr;gap:10px;margin-top:16px}.care-task{padding:19px}.care-task-top{margin-bottom:19px}.care-task h4{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.care-task{animation:none}.care-season-switch button{transition:none}}
