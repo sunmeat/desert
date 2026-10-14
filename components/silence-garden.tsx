@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Bird, CloudRain, Leaf, RefreshCw, Wind, X, Flame, TreeDeciduous, Droplets, Waves, Music, Coffee, Drum, CircleDot, Flower2, Sprout, Bug, CloudLightning, Trees } from 'lucide-react'
 
 type Locale = 'pt' | 'ru' | 'en'
-type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning'
+type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'springForest' | 'springGarden' | 'rainforest' | 'forestDay' | 'garden' | 'summerGarden' | 'birdRelax' | 'springBirds' | 'windyForest' | 'rainBirds' | 'morningBirds' | 'gardenBirds' | 'cityPark' | 'blossomWind'
 
 const quotes: Record<Locale, string[]> = {
   ru: [
@@ -171,7 +171,7 @@ const soundLabels: Record<Locale, Record<SoundKey, string>> = {
   pt: { rain:'Chuva tranquila', birds:'Pássaros na floresta', stream:'Riacho na floresta', ocean:'Ondas do oceano', chimes:'Sinos de vento', cicadas:'Cigarras', forest:'Floresta noturna e riacho', evening:'Grilos e pássaros ao entardecer', thunder:'Chuva e trovão distante', meadow:'Prado ao entardecer', morning:'Manhã junto ao riacho' },
   en: { rain:'Gentle rain', birds:'Forest birdsong', stream:'Forest stream', ocean:'Ocean waves', chimes:'Wind chimes', cicadas:'Cicadas', forest:'Night forest and stream', evening:'Evening crickets and birds', thunder:'Rain and distant thunder', meadow:'Evening meadow', morning:'Morning forest stream' }
 }
-const soundKeys: SoundKey[] = ['rain','birds','stream','ocean','chimes','cicadas','forest','evening','thunder','meadow','morning']
+const soundKeys: SoundKey[] = ['rain','birds','stream','ocean','chimes','cicadas','forest','evening','thunder','meadow','morning','springForest','springGarden','rainforest','forestDay','garden','summerGarden','birdRelax','springBirds','windyForest','rainBirds','morningBirds','gardenBirds','cityPark','blossomWind']
 const soundIcons: Record<SoundKey, typeof CloudRain> = {
   rain:CloudRain, birds:Bird, stream:Waves, ocean:Waves, chimes:Music, cicadas:Bug, forest:Trees, evening:Bug, thunder:CloudLightning, meadow:Sprout, morning:Bird
 }
