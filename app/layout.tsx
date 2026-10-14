@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import './flower-atlas.css'
 
-const siteUrl = 'https://rosol.vercel.app'
+const siteUrl = 'https://natadenium.vercel.app'
 const siteTitle = 'Rosas do Deserto | Coleção Botânica'
 const siteDescription =
   'Explore uma coleção especial de rosas do deserto (Adenium), com flores marcantes, formas esculturais e a beleza singular da natureza brasileira.'
