@@ -161,3 +161,10 @@
   .silence-modal-bottom{gap:11px;font-size:7px;letter-spacing:.12em}
 }
 @media(prefers-reduced-motion:reduce){.silence-modal,.silence-quote-panel blockquote{animation:none}.silence-enter-button,.silence-sound-button,.silence-next-quote{transition:none}}
+
+/* Expanded sound library layout */
+.silence-sound-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.silence-sound-button{min-height:104px;padding:14px;gap:15px;line-height:1.45}
+.silence-sound-button>span:nth-child(2){max-width:100%;overflow-wrap:anywhere}
+@media(max-width:1000px){.silence-sound-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.silence-sound-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.silence-sound-button{min-height:94px;padding:13px;font-size:10px}}
