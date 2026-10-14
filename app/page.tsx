@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ArrowDown, ArrowLeft, ArrowRight, Camera, Menu, Pause, Play, X } from 'lucide-react'
 import FlowerAtlas from '@/components/flower-atlas'
+import CareCalendar from '@/components/care-calendar'
 
 type Locale = 'pt' | 'ru' | 'en'
 
@@ -298,7 +299,7 @@ export default function Page() {
       <header className="site-header">
         <a className="brand" href="#inicio"><span className="brand-mark">R</span><span>{t.brand}</span></a>
         <nav className="desktop-nav" aria-label={t.menu}>
-          <a href="#colecao">{t.nav[0]}</a><a href="#atlas-floracao">{locale === 'pt' ? 'Atlas da floração' : locale === 'ru' ? 'Атлас цветения' : 'Bloom atlas'}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
+          <a href="#colecao">{t.nav[0]}</a><a href="#atlas-floracao">{locale === 'pt' ? 'Atlas da floração' : locale === 'ru' ? 'Атлас цветения' : 'Bloom atlas'}</a><a href="#calendario-cuidados">{locale === 'pt' ? 'Cuidados' : locale === 'ru' ? 'Уход' : 'Care calendar'}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
         </nav>
         <div className="header-tools">
           <button className="audio-button header-audio-button" onClick={toggleAudio} aria-label={isPlaying ? t.pause : t.play} title={isPlaying ? t.pause : t.play} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} <span>{isPlaying ? t.pause : t.play}</span></button>
@@ -328,9 +329,11 @@ export default function Page() {
 
       <FlowerAtlas locale={locale} />
 
-      <section className="story dark-section"><div className="story-image"><Image src={gallery[2]} alt={t.galleryAlt[2]} fill sizes="50vw" /></div><div className="story-copy"><div className="section-kicker light"><span>04</span><span>{t.storyKicker}</span></div><h2>{t.storyTitle}</h2><p>{t.storyText1}</p><p>{t.storyText2}</p><span className="story-sign">— {t.storySign}</span></div></section>
+      <CareCalendar locale={locale} />
 
-      <section className="cultivo section-pad" id="natanael"><div className="section-kicker"><span>05</span><span>{t.aboutKicker}</span></div><div className="cultivo-grid"><div className="portrait"><Image src={gallery[3]} alt={t.portraitAlt} fill sizes="(max-width: 700px) 100vw, 40vw" /><span>{t.portraitCaption}</span></div><div className="cultivo-copy"><p className="eyebrow">{t.aboutEyebrow}</p><h2>{t.aboutTitle}</h2><p className="lead">{t.aboutLead}</p><p>{t.aboutText}</p><div className="quote-card"><blockquote className="faith">{t.quotes[quoteIndex]}</blockquote><button className="faith-more" type="button" onClick={() => setQuoteIndex((quoteIndex + 1) % t.quotes.length)}><span className="quote-button-icon">↻</span>{t.quoteButton}</button></div><a className="text-link dark" href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /> {content.instagram} <span>↗</span></a></div></div></section>
+      <section className="story dark-section"><div className="story-image"><Image src={gallery[2]} alt={t.galleryAlt[2]} fill sizes="50vw" /></div><div className="story-copy"><div className="section-kicker light"><span>05</span><span>{t.storyKicker}</span></div><h2>{t.storyTitle}</h2><p>{t.storyText1}</p><p>{t.storyText2}</p><span className="story-sign">— {t.storySign}</span></div></section>
+
+      <section className="cultivo section-pad" id="natanael"><div className="section-kicker"><span>06</span><span>{t.aboutKicker}</span></div><div className="cultivo-grid"><div className="portrait"><Image src={gallery[3]} alt={t.portraitAlt} fill sizes="(max-width: 700px) 100vw, 40vw" /><span>{t.portraitCaption}</span></div><div className="cultivo-copy"><p className="eyebrow">{t.aboutEyebrow}</p><h2>{t.aboutTitle}</h2><p className="lead">{t.aboutLead}</p><p>{t.aboutText}</p><div className="quote-card"><blockquote className="faith">{t.quotes[quoteIndex]}</blockquote><button className="faith-more" type="button" onClick={() => setQuoteIndex((quoteIndex + 1) % t.quotes.length)}><span className="quote-button-icon">↻</span>{t.quoteButton}</button></div><a className="text-link dark" href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /> {content.instagram} <span>↗</span></a></div></div></section>
 
       <section className="sun-section"><div><span className="sun-symbol">✳</span><h2>{t.sunTitle}</h2><p>{t.sunText}</p></div></section>
 
