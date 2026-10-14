@@ -197,7 +197,8 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   forestDay: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' },
   garden: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' },
   summerGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2021/08/Bird-sounds-in-the-summer-garden.mp3', credit:'Bird Sounds in the Summer Garden · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/bird-sounds-in-the-summer-garden/' },
-  birdRelax: { src:'https://orangefreesounds.com/wp-content/uploads/2017/01/Birds-singing-relaxation.mp3', credit:'Birds Singing Relaxation · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/birds-singing-relaxation/' }
+  birdRelax: { src:'https://orangefreesounds.com/wp-content/uploads/2017/01/Birds-singing-relaxation.mp3', credit:'Birds Singing Relaxation · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/birds-singing-relaxation/' },
+  springBirds: { src:'https://orangefreesounds.com/wp-content/uploads/2023/03/Spring-birds-chirping-sound-effect.mp3', credit:'Spring Birds Chirping · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-birds-chirping-sound-effect/' }
 }
 
 const copy = {
