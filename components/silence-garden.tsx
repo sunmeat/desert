@@ -325,7 +325,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
             <section className="silence-sounds" aria-labelledby="silence-sounds-title">
               <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / {soundKeys.length}</span></div>
               <div className="silence-sound-grid">
-                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; const active = activeSounds.includes(sound); return <button key={sound} className={'silence-sound-button ' + (active ? 'is-active' : '')} type="button" aria-pressed={active} onClick={() => toggleSound(sound)}><span className="silence-sound-icon"><Icon /></span><span>{soundLabels[locale][sound]}</span><span className="silence-sound-state">{active ? '●' : '+'}</span></button> })}
+                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; const active = activeSounds.includes(sound); return <button key={sound} className={'silence-sound-button ' + (active ? 'is-active' : '')} type="button" aria-pressed={active} onMouseDown={(event) => event.preventDefault()} onClick={() => toggleSound(sound)}><span className="silence-sound-icon"><Icon /></span><span>{soundLabels[locale][sound]}</span><span className="silence-sound-state">{active ? '●' : '+'}</span></button> })}
               </div>
               <p className="silence-sound-hint">{t.hint}</p>
             </section>
