@@ -284,7 +284,7 @@ export default function Page() {
           <a href="#colecao">{t.nav[0]}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
         </nav>
         <div className="header-tools">
-          <button className="audio-button header-audio-button" onClick={toggleAudio} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} <span>{isPlaying ? t.pause : t.play}</span></button>
+          <button className="audio-button header-audio-button" onClick={toggleAudio} aria-label={isPlaying ? t.pause : t.play} title={isPlaying ? t.pause : t.play} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} <span>{isPlaying ? t.pause : t.play}</span></button>
           <div className="language-switch" aria-label="Choose language">
             {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => { setLocale(code); document.title = pageTitles[code]; document.documentElement.lang = code === 'pt' ? 'pt-BR' : code }}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
           </div>
