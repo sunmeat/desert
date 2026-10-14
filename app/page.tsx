@@ -45,8 +45,8 @@ const translations = {
     aboutTitle: <>Натаниэль<br /><em>Феррейра.</em></>,
     aboutLead: 'Преподаватель философии · Любитель пустынных роз',
     aboutText: 'Натаниэль живёт в бразильском штате Алагоас. Его профиль объединяет две стороны личности: интерес к философии и увлечение пустынными розами. Этот сайт посвящён растениям, внимательному наблюдению за природой и терпению, которого требует выращивание.',
-    quote: '«Не осмеливайся отнимать моё одиночество, если не способен составить мне настоящую компанию».',
-    quoteSource: 'Цитата из био Натаниэля в Instagram',
+    quotes: ['Забота о растении начинается с внимания. С человеком всё так же: прежде чем помочь ему расцвести, нужно научиться его замечать.','Цветок нельзя заставить раскрыться раньше времени. Иногда человеку нужны не советы, а терпение и немного света.','Поливать корни недостаточно, если забыть о свете. Любовь к людям тоже живёт в простом: быть рядом, слушать и поддерживать.','Каждое растение тянется к свету по-своему. Не стоит требовать от людей расти одинаково.','Мы ухаживаем за садом не ради благодарности цветов. Пусть и доброта к людям будет тихой, искренней и без условий.'],
+    quoteSource: 'Размышления о заботе, природе и людях',
     sunTitle: <>Созданы<br /><em>для солнца.</em></>,
     sunText: 'Тепло, свет и земля. Возможно, поэтому в Бразилии розы пустыни находят такое прекрасное место для цветения.',
     futureEyebrow: 'Сад продолжает расти',
@@ -102,8 +102,8 @@ const translations = {
     aboutTitle: <>Natanael<br /><em>Ferreira.</em></>,
     aboutLead: 'Professor de Filosofia · Admirador das rosas do deserto',
     aboutText: 'Natanael vive no estado brasileiro de Alagoas. Seu perfil reúne dois interesses: a filosofia e as rosas do deserto. Este espaço é dedicado às plantas, à observação atenta da natureza e à paciência que o cultivo exige.',
-    quote: '“Não ouse roubar minha solidão, se não fores capaz de me fazer real companhia.”',
-    quoteSource: 'Frase presente na bio do Instagram de Natanael',
+    quotes: ['Cuidar de uma planta começa com atenção. Com as pessoas é igual: antes de ajudá-las a florescer, é preciso aprender a enxergá-las.','Não se pode apressar uma flor. Às vezes, as pessoas também não precisam de conselhos, mas de paciência e um pouco de luz.','Não basta regar as raízes se esquecemos a luz. O amor pelas pessoas também vive nas coisas simples: estar presente, ouvir e apoiar.','Cada planta busca a luz à sua maneira. Não devemos exigir que todas as pessoas cresçam do mesmo jeito.','Cuidamos do jardim sem esperar gratidão das flores. Que a bondade com as pessoas seja assim: silenciosa, sincera e sem condições.'],
+    quoteSource: 'Reflexões sobre cuidado, natureza e pessoas',
     sunTitle: <>Feitas<br /><em>para o sol.</em></>,
     sunText: 'Luz, calor e terra. Em Alagoas, a natureza brasileira compõe o cenário desta coleção de rosas do deserto.',
     futureEyebrow: 'O jardim continua crescendo',
@@ -159,8 +159,8 @@ const translations = {
     aboutTitle: <>Natanael<br /><em>Ferreira.</em></>,
     aboutLead: 'Philosophy teacher · Desert rose enthusiast',
     aboutText: 'Natanael lives in the Brazilian state of Alagoas. His profile brings together two interests: philosophy and desert roses. This space celebrates plants, thoughtful observation of nature, and the patience that growing them requires.',
-    quote: '“Do not dare to steal my solitude if you cannot offer me true companionship.”',
-    quoteSource: 'Quote from Natanael’s Instagram bio',
+    quotes: ['Caring for a plant begins with attention. With people, it is the same: before helping them bloom, we must learn to truly see them.','You cannot hurry a flower into opening. Sometimes people need no advice, only patience and a little light.','Watering the roots is not enough if we forget the light. Love for people also lives in simple things: showing up, listening, and supporting.','Every plant reaches for the light in its own way. We should never expect every person to grow alike.','We tend a garden without expecting gratitude from its flowers. May our kindness to people be just as quiet, sincere, and unconditional.'],
+    quoteSource: 'Reflections on care, nature, and people',
     sunTitle: <>Made<br /><em>for the sun.</em></>,
     sunText: 'Light, warmth, and soil. In Alagoas, the Brazilian landscape provides the setting for this collection of desert roses.',
     futureEyebrow: 'The garden keeps growing',
@@ -231,6 +231,7 @@ export default function Page() {
   const [locale, setLocale] = useState<Locale>('pt')
   const [isPlaying, setIsPlaying] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [quoteIndex, setQuoteIndex] = useState(0)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const previousTrackRef = useRef<number>(-1)
   const t = translations[locale]
@@ -242,6 +243,7 @@ export default function Page() {
   }
 
   useEffect(() => {
+    setQuoteIndex(Math.floor(Math.random() * translations[locale].quotes.length))
     document.title = pageTitles[locale]
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale
   }, [locale])
@@ -329,7 +331,7 @@ export default function Page() {
 
       <section className="story dark-section"><div className="story-image"><Image src={gallery[2]} alt={t.galleryAlt[2]} fill sizes="50vw" /></div><div className="story-copy"><div className="section-kicker light"><span>03</span><span>{t.storyKicker}</span></div><h2>{t.storyTitle}</h2><p>{t.storyText1}</p><p>{t.storyText2}</p><span className="story-sign">— {t.storySign}</span></div></section>
 
-      <section className="cultivo section-pad" id="natanael"><div className="section-kicker"><span>04</span><span>{t.aboutKicker}</span></div><div className="cultivo-grid"><div className="portrait"><Image src={gallery[3]} alt={t.portraitAlt} fill sizes="(max-width: 700px) 100vw, 40vw" /><span>{t.portraitCaption}</span></div><div className="cultivo-copy"><p className="eyebrow">{t.aboutEyebrow}</p><h2>{t.aboutTitle}</h2><p className="lead">{t.aboutLead}</p><p>{t.aboutText}</p><blockquote className="faith">{t.quote}<small>{t.quoteSource}</small></blockquote><a className="text-link dark" href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /> {content.instagram} <span>↗</span></a></div></div></section>
+      <section className="cultivo section-pad" id="natanael"><div className="section-kicker"><span>04</span><span>{t.aboutKicker}</span></div><div className="cultivo-grid"><div className="portrait"><Image src={gallery[3]} alt={t.portraitAlt} fill sizes="(max-width: 700px) 100vw, 40vw" /><span>{t.portraitCaption}</span></div><div className="cultivo-copy"><p className="eyebrow">{t.aboutEyebrow}</p><h2>{t.aboutTitle}</h2><p className="lead">{t.aboutLead}</p><p>{t.aboutText}</p><blockquote className="faith">{t.quotes[quoteIndex]}<small>{t.quoteSource}</small></blockquote><a className="text-link dark" href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /> {content.instagram} <span>↗</span></a></div></div></section>
 
       <section className="sun-section"><div><span className="sun-symbol">✳</span><h2>{t.sunTitle}</h2><p>{t.sunText}</p></div></section>
 
