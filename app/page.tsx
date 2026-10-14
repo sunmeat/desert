@@ -239,12 +239,12 @@ export default function Page() {
       if (context && masterGainRef.current) {
         masterGainRef.current.gain.cancelScheduledValues(context.currentTime)
         masterGainRef.current.gain.setTargetAtTime(0, context.currentTime, 0.25)
+        const oscillatorsToStop = [...chordOscillatorsRef.current]
+        chordOscillatorsRef.current = []
         window.setTimeout(() => {
-          chordOscillatorsRef.current.forEach((oscillator) => {
+          oscillatorsToStop.forEach((oscillator) => {
             try { oscillator.stop() } catch {}
           })
-          chordOscillatorsRef.current = []
-          void context.suspend()
         }, 900)
       }
       setIsPlaying(false)
