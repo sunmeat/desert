@@ -173,7 +173,7 @@ const soundLabels: Record<Locale, Record<SoundKey, string>> = {
 }
 const soundKeys: SoundKey[] = ['rain','birds','stream','ocean','chimes','cicadas','forest','evening','thunder','meadow','morning','springForest','springGarden','rainforest','forestDay','garden','summerGarden','birdRelax','springBirds','windyForest','rainBirds','morningBirds','gardenBirds','cityPark','blossomWind']
 const soundIcons: Record<SoundKey, typeof CloudRain> = {
-  rain:CloudRain, birds:Bird, stream:Waves, ocean:Waves, chimes:Music, cicadas:Bug, forest:Trees, evening:Bug, thunder:CloudLightning, meadow:Sprout, morning:Bird
+  rain:CloudRain, birds:Bird, stream:Waves, ocean:Waves, chimes:Music, cicadas:Bug, forest:Trees, evening:Bug, thunder:CloudLightning, meadow:Sprout, morning:Bird, springForest:Trees, springGarden:Flower2, rainforest:Trees, forestDay:Trees, garden:Flower2, summerGarden:Bird, birdRelax:Bird, springBirds:Bird, windyForest:Wind, rainBirds:CloudRain, morningBirds:Bird, gardenBirds:Flower2, cityPark:Trees, blossomWind:Flower2
 }
 const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: string }> = {
   rain: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Loopable-heavy-rain-ambience-sound-effect.mp3', credit:'Loopable Heavy Rain Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/loopable-heavy-rain-ambience-sound-effect/' },
