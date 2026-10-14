@@ -309,7 +309,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
         <div className="silence-modal-backdrop" aria-hidden="true" />
         <div className="silence-modal-content">
           <header className="silence-modal-header">
-            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><span className="brand-mark silence-modal-brand-mark" aria-hidden="true">🌺</span><span>{t.brand}</span></a>
+            <a className="brand silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><span className="brand-mark" aria-hidden="true">🌺</span><span>{locale === 'ru' ? <>Розы<br /><i>пустыни</i></> : locale === 'en' ? <>Desert<br /><i>roses</i></> : <>Rosas<br /><i>do deserto</i></>}</span></a>
             <span className="silence-live-mark"><span /> {t.invitation}</span>
             <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
           </header>
