@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ArrowDown, ArrowLeft, ArrowRight, Camera, Menu, Pause, Play, X } from 'lucide-react'
 
@@ -215,6 +215,15 @@ export default function Page() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
   const t = translations[locale]
+
+  useEffect(() => {
+    const titles: Record<Locale, string> = {
+      pt: 'Rosas do Deserto | Coleção Botânica',
+      ru: 'Розы пустыни | Ботаническая коллекция',
+      en: 'Desert Roses | Botanical Collection',
+    }
+    document.title = titles[locale]
+  }, [locale])
 
   const toggleAudio = () => {
     if (!audioRef.current) return
