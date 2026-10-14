@@ -213,118 +213,92 @@ export default function Page() {
   const [locale, setLocale] = useState<Locale>('pt')
   const [isPlaying, setIsPlaying] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const audioContextRef = useRef<AudioContext | null>(null)
-  const masterGainRef = useRef<GainNode | null>(null)
-  const chordOscillatorsRef = useRef<OscillatorNode[]>([])
-  const chordIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const melodyIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const previousTrackRef = useRef<number>(-1)
   const t = translations[locale]
 
+  const pageTitles: Record<Locale, string> = {
+    pt: 'Rosas do Deserto | Coleção Botânica',
+    ru: 'Розы пустыни | Ботаническая коллекция',
+    en: 'Desert Roses | Botanical Collection',
+  }
+
   useEffect(() => {
-    const titles: Record<Locale, string> = {
-      pt: 'Rosas do Deserto | Coleção Botânica',
-      ru: 'Розы пустыни | Ботаническая коллекция',
-      en: 'Desert Roses | Botanical Collection',
-    }
-    document.title = titles[locale]
+    document.title = pageTitles[locale]
+    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale
   }, [locale])
 
-  const toggleAudio = async () => {
-    if (isPlaying) {
-      if (chordIntervalRef.current) clearInterval(chordIntervalRef.current)
-      if (melodyIntervalRef.current) clearInterval(melodyIntervalRef.current)
-      chordIntervalRef.current = null
-      melodyIntervalRef.current = null
-      const context = audioContextRef.current
-      if (context && masterGainRef.current) {
-        masterGainRef.current.gain.cancelScheduledValues(context.currentTime)
-        masterGainRef.current.gain.setTargetAtTime(0, context.currentTime, 0.25)
-        const oscillatorsToStop = [...chordOscillatorsRef.current]
-        chordOscillatorsRef.current = []
-        window.setTimeout(() => {
-          oscillatorsToStop.forEach((oscillator) => {
-            try { oscillator.stop() } catch {}
-          })
-        }, 900)
-      }
-      setIsPlaying(false)
-      return
+  const tracks = [
+    {
+      title: 'Tico Tico no Fubá',
+      artist: 'Orquestra Colbaz (1931)',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Tico_Tico_no_Fub%C3%A1-Orquestra_Colbaz-Zequinha_de_Abreu-1931.ogg',
+    },
+    {
+      title: 'O Urubu e o Gavião',
+      artist: 'Pixinguinha (1930)',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pixinguinha-_%20O_Urubu_e_o_Gaviao_1930.ogg',
+    },
+    {
+      title: 'Samba de fato',
+      artist: 'Patrício Teixeira e Trio T.B.T. (1932)',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Samba_de_fato_1932.ogg',
+    },
+    {
+      title: 'Na Pavuna',
+      artist: 'Almirante (1929)',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Na_Pavuna-Almirante-Homero_Dornelas1929.ogg',
+    },
+    {
+      title: 'Pelo Telefone',
+      artist: 'Donga (1916)',
+      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pelo_Telephone_%281916%29.ogg',
+    },
+  ]
+
+  const playRandomTrack = async () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    let nextTrack = Math.floor(Math.random() * tracks.length)
+    if (tracks.length > 1 && nextTrack === previousTrackRef.current) {
+      nextTrack = (nextTrack + 1 + Math.floor(Math.random() * (tracks.length - 1))) % tracks.length
     }
 
+    previousTrackRef.current = nextTrack
+    audio.src = tracks[nextTrack].url
+    audio.load()
+
     try {
-      const AudioContextClass = window.AudioContext
-      const context = audioContextRef.current ?? new AudioContextClass()
-      audioContextRef.current = context
-      await context.resume()
-
-      const master = context.createGain()
-      master.gain.setValueAtTime(0.0001, context.currentTime)
-      master.gain.setTargetAtTime(0.16, context.currentTime, 1.2)
-      master.connect(context.destination)
-      masterGainRef.current = master
-
-      const progressions = [
-        [130.81, 196, 246.94, 329.63],
-        [110, 164.81, 196, 261.63],
-        [87.31, 130.81, 174.61, 220],
-        [98, 146.83, 196, 293.66],
-      ]
-      const pad = progressions[0].map((frequency, index) => {
-        const oscillator = context.createOscillator()
-        const voiceGain = context.createGain()
-        oscillator.type = 'sine'
-        oscillator.frequency.setValueAtTime(frequency, context.currentTime)
-        oscillator.detune.value = index % 2 === 0 ? -3 : 3
-        voiceGain.gain.value = index === 0 ? 0.22 : 0.13
-        oscillator.connect(voiceGain)
-        voiceGain.connect(master)
-        oscillator.start()
-        return oscillator
-      })
-      chordOscillatorsRef.current = pad
-
-      let chordIndex = 0
-      chordIntervalRef.current = setInterval(() => {
-        chordIndex = (chordIndex + 1) % progressions.length
-        const now = context.currentTime
-        pad.forEach((oscillator, index) => {
-          oscillator.frequency.setTargetAtTime(progressions[chordIndex][index], now, 2.2)
-        })
-      }, 7000)
-
-      const melody = [523.25, 659.25, 783.99, 659.25, 587.33, 523.25, 392, 440, 523.25, 659.25, 587.33, 440]
-      let noteIndex = 0
-      melodyIntervalRef.current = setInterval(() => {
-        if (context.state !== 'running') return
-        const now = context.currentTime
-        const note = context.createOscillator()
-        const envelope = context.createGain()
-        note.type = 'sine'
-        note.frequency.setValueAtTime(melody[noteIndex], now)
-        envelope.gain.setValueAtTime(0.0001, now)
-        envelope.gain.exponentialRampToValueAtTime(0.035, now + 0.35)
-        envelope.gain.exponentialRampToValueAtTime(0.0001, now + 2.3)
-        note.connect(envelope)
-        envelope.connect(master)
-        note.start(now)
-        note.stop(now + 2.4)
-        noteIndex = (noteIndex + 1) % melody.length
-      }, 2600)
-
+      await audio.play()
       setIsPlaying(true)
     } catch {
       setIsPlaying(false)
     }
   }
 
-  useEffect(() => () => {
-    if (chordIntervalRef.current) clearInterval(chordIntervalRef.current)
-    if (melodyIntervalRef.current) clearInterval(melodyIntervalRef.current)
-    chordOscillatorsRef.current.forEach((oscillator) => {
-      try { oscillator.stop() } catch {}
-    })
-    void audioContextRef.current?.close()
-  }, [])
+  const toggleAudio = async () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (!audio.paused) {
+      audio.pause()
+      setIsPlaying(false)
+      return
+    }
+
+    if (!audio.src || audio.ended) {
+      await playRandomTrack()
+      return
+    }
+
+    try {
+      await audio.play()
+      setIsPlaying(true)
+    } catch {
+      setIsPlaying(false)
+    }
+  }
 
   const moveLightbox = (direction: number) => {
     if (lightboxIndex === null) return
@@ -340,7 +314,7 @@ export default function Page() {
         </nav>
         <div className="header-tools">
           <div className="language-switch" aria-label="Choose language">
-            {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => setLocale(code)}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
+            {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => { setLocale(code); document.title = pageTitles[code]; document.documentElement.lang = code === 'pt' ? 'pt-BR' : code }}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
           </div>
           <button className="menu-button" aria-label={t.menu}><Menu /></button>
         </div>
@@ -356,6 +330,7 @@ export default function Page() {
           <div className="hero-actions"><a className="button button-light" href="#colecao">{t.collectionButton} <ArrowDown /></a><a className="text-link light" href="#galeria">{t.galleryLink} <span>↗</span></a></div>
         </div>
         <div className="hero-bottom"><span>{t.heroFooter}</span><button className="audio-button" onClick={toggleAudio} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} {isPlaying ? t.pause : t.play}</button></div>
+        <audio ref={audioRef} onEnded={() => { void playRandomTrack() }} onPause={() => setIsPlaying(false)} onPlay={() => setIsPlaying(true)} preload="none" />
       </section>
 
       <section className="intro section-pad"><div className="section-kicker"><span>01</span><span>{t.introKicker}</span></div><div className="intro-grid"><h2>{t.introTitle}</h2><div className="intro-copy"><p className="lead">{t.introLead}</p><p>{t.introText}</p><a className="text-link dark" href="#natanael">{t.introLink} <span>↗</span></a></div></div></section>
