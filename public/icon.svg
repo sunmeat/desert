@@ -1,14 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="15" fill="#0a0d0b"/>
-  <g transform="translate(32 29)">
-    <ellipse cx="0" cy="-12" rx="8" ry="13" fill="#ef9ca9"/>
-    <ellipse cx="11.5" cy="-3.5" rx="8" ry="13" transform="rotate(55 11.5 -3.5)" fill="#d9788b"/>
-    <ellipse cx="7" cy="10" rx="8" ry="13" transform="rotate(145 7 10)" fill="#f4b7bd"/>
-    <ellipse cx="-7" cy="10" rx="8" ry="13" transform="rotate(215 -7 10)" fill="#d9788b"/>
-    <ellipse cx="-11.5" cy="-3.5" rx="8" ry="13" transform="rotate(305 -11.5 -3.5)" fill="#f4b7bd"/>
-    <circle r="5" cy="0" fill="#e8c27b"/>
-  </g>
-  <path d="M31 43c-1 7-1 10-1 13" stroke="#8da17b" stroke-width="3" stroke-linecap="round"/>
-  <path d="M30 49c-9 1-13-3-14-8 8 0 12 3 14 8Z" fill="#789775"/>
-  <path d="M31 52c8 0 12-4 13-9-8 0-12 4-13 9Z" fill="#526d51"/>
+  <text x="32" y="47" text-anchor="middle" font-size="43" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🌺</text>
 </svg>
