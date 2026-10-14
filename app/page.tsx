@@ -7,6 +7,7 @@ import FlowerAtlas from '@/components/flower-atlas'
 import CareCalendar from '@/components/care-calendar'
 import SilenceGarden from '@/components/silence-garden'
 import FlowerWaiting from '@/components/flower-waiting'
+import GardenLetter from '@/components/garden-letter'
 
 type Locale = 'pt' | 'ru' | 'en'
 
@@ -360,7 +361,7 @@ export default function Page() {
 
       <SilenceGarden locale={locale} />
 
-      <footer className="footer section-pad" id="contato"><div className="footer-top"><div><p className="eyebrow">{t.footerEyebrow}</p><h2>{t.footerTitle}</h2></div><p className="footer-intro">{t.footerText}</p></div><div className="contact-links"><a href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /><span>Instagram<small>{content.instagram}</small></span></a><a href={content.whatsappUrl} target="_blank" rel="noreferrer"><span className="contact-icon">◌</span><span>WhatsApp<small>{content.whatsapp}</small></span></a></div><div className="footer-bottom"><span>{locale === 'pt' ? 'Rosas do deserto · Alagoas, Brasil' : locale === 'en' ? 'Desert roses · Alagoas, Brazil' : 'Розы пустыни · Алагоас, Бразилия'}</span><span>{t.footerSign} <b>✳</b></span></div></footer>
+      <footer className="footer section-pad" id="contato"><div className="footer-top"><div><p className="eyebrow">{t.footerEyebrow}</p><h2>{t.footerTitle}</h2></div><p className="footer-intro">{t.footerText}</p></div><div className="contact-links"><a href={content.instagramUrl} target="_blank" rel="noreferrer"><Camera /><span>Instagram<small>{content.instagram}</small></span></a><a href={content.whatsappUrl} target="_blank" rel="noreferrer"><span className="contact-icon">◌</span><span>WhatsApp<small>{content.whatsapp}</small></span></a></div><GardenLetter locale={locale} quotes={t.quotes} photos={gallery} photoAlt={t.galleryAlt} /><div className="footer-bottom"><span>{locale === 'pt' ? 'Rosas do deserto · Alagoas, Brasil' : locale === 'en' ? 'Desert roses · Alagoas, Brazil' : 'Розы пустыни · Алагоас, Бразилия'}</span><span>{t.footerSign} <b>✳</b></span></div></footer>
 
       {lightboxIndex !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={t.lightboxLabel} onClick={() => setLightboxIndex(null)}><button className="lightbox-close" onClick={() => setLightboxIndex(null)} aria-label={t.close}><X /></button><button className="lightbox-arrow left" onClick={(event) => { event.stopPropagation(); moveLightbox(-1) }} aria-label={t.previous}><ArrowLeft /></button><div className="lightbox-image" onClick={(event) => event.stopPropagation()}><Image src={gallery[lightboxIndex]} alt={t.galleryAlt[lightboxIndex]} fill sizes="90vw" /><p>{t.gallery[lightboxIndex]}</p></div><button className="lightbox-arrow right" onClick={(event) => { event.stopPropagation(); moveLightbox(1) }} aria-label={t.next}><ArrowRight /></button></div>}
     </main>
