@@ -287,17 +287,7 @@ export default function Page() {
       return
     }
 
-    if (!audio.src || audio.ended) {
-      await playRandomTrack()
-      return
-    }
-
-    try {
-      await audio.play()
-      setIsPlaying(true)
-    } catch {
-      setIsPlaying(false)
-    }
+    await playRandomTrack()
   }
 
   const moveLightbox = (direction: number) => {
