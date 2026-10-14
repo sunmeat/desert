@@ -176,3 +176,45 @@
 .silence-audio-credits a{color:var(--muted-dark);text-decoration:underline;text-decoration-color:rgba(167,197,154,.25);text-underline-offset:3px}
 .silence-audio-credits a:hover{color:var(--green)}
 @media(max-width:700px){.silence-audio-credits{gap:8px 12px;padding:0 16px 22px;font-size:8px}}
+
+
+/* A small botanical interlude: bud, unfolding petals, and full bloom */
+.flower-waiting{position:relative;overflow:hidden;background:linear-gradient(180deg,#0a0d0b,#111713 52%,#0a0d0b);border-top:1px solid var(--line)}
+.flower-waiting:before{content:"";position:absolute;top:12%;left:-180px;width:360px;height:360px;border:1px solid rgba(232,155,159,.12);border-radius:50%;box-shadow:0 0 0 32px rgba(232,155,159,.025),0 0 0 68px rgba(232,155,159,.018);pointer-events:none}
+.flower-waiting-heading{position:relative;display:grid;grid-template-columns:1fr .65fr;align-items:end;gap:clamp(30px,8vw,120px);margin:0 0 36px}
+.flower-waiting-heading .eyebrow{color:var(--rose);text-transform:uppercase;letter-spacing:.16em;font-size:9px;font-weight:700}
+.flower-waiting-heading h2{margin:18px 0 0;font-family:'Playfair Display',serif;font-size:clamp(48px,7.5vw,92px);font-weight:400;line-height:.98;letter-spacing:-.055em}
+.flower-waiting-heading h2 em{color:var(--rose);font-weight:400}
+.flower-waiting-heading>p{max-width:390px;margin:0 0 5px;color:var(--muted);font-size:12px;line-height:1.9}
+.flower-waiting-art{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative}
+.flower-stage{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;padding:20px 12px 22px;border:1px solid var(--line);background:rgba(255,255,255,.012);overflow:hidden}
+.flower-stage svg{width:min(100%,190px);height:190px;overflow:visible}
+.flower-stage>span{margin-top:6px;color:var(--muted-dark);font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+.waiting-stem{fill:none;stroke:#789775;stroke-width:3;stroke-linecap:round}
+.waiting-leaf{fill:#526d51;stroke:#8da17b;stroke-width:1.2;transform-box:fill-box;transform-origin:bottom center}
+.waiting-petal{fill:#d78d99;stroke:#f0b8bd;stroke-width:1.2;transform-box:fill-box;transform-origin:50% 90%}
+.waiting-petal-outer{fill:#bd6f80}
+.waiting-petal-inner{fill:#efb0b6}
+.waiting-center{fill:#e7c17f;stroke:#f5dba0;stroke-width:1.5}
+.waiting-center-dot{fill:#8e5b40}
+.flower-stage-bud .waiting-petal-outer{transform:scale(.68,1.12)}
+.flower-stage-bud .waiting-petal-inner{transform:scale(.6,1.1)}
+.flower-stage-opening .waiting-opening-petals{transform:scale(.76);transform-origin:90px 77px}
+.flower-stage-open .waiting-bloom-petals{transform:scale(.08);transform-origin:90px 76px;opacity:.35}
+.flower-waiting.is-bloomed .flower-stage-bud svg{animation:waiting-bud .85s cubic-bezier(.2,.75,.25,1) both}
+.flower-waiting.is-bloomed .flower-stage-opening svg{animation:waiting-open 1s .25s cubic-bezier(.2,.75,.25,1) both}
+.flower-waiting.is-bloomed .flower-stage-open svg{animation:waiting-flower 1.2s .5s cubic-bezier(.2,.75,.25,1) both}
+.flower-waiting.is-bloomed .flower-stage-opening .waiting-opening-petals{animation:waiting-petals 1s .25s cubic-bezier(.2,.75,.25,1) both}
+.flower-waiting.is-bloomed .flower-stage-open .waiting-bloom-petals{animation:waiting-full-bloom 1.2s .5s cubic-bezier(.2,.75,.25,1) both}
+.flower-waiting.is-bloomed .waiting-leaf{animation:waiting-leaf 1s .45s ease-out both}
+.flower-waiting-replay{display:flex;align-items:center;justify-content:center;gap:12px;min-height:46px;margin:25px auto 0;padding:0 18px;border:1px solid rgba(232,155,159,.4);background:rgba(232,155,159,.045);color:var(--text);font-size:10px;letter-spacing:.04em;transition:background .2s,border-color .2s}
+.flower-waiting-replay span{color:var(--rose);font-size:18px}
+.flower-waiting-replay:hover{border-color:var(--rose);background:rgba(232,155,159,.1)}
+@keyframes waiting-bud{0%{transform:translateY(8px) scale(.88);opacity:.45}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes waiting-open{0%{transform:scale(.9);opacity:.55}100%{transform:scale(1);opacity:1}}
+@keyframes waiting-flower{0%{transform:scale(.85) rotate(-5deg);opacity:.45}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes waiting-petals{0%{transform:scale(.25);opacity:.5}100%{transform:scale(1);opacity:1}}
+@keyframes waiting-full-bloom{0%{transform:scale(.08) rotate(-18deg);opacity:.25}75%{transform:scale(1.08) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes waiting-leaf{0%{transform:scale(.35) rotate(-12deg)}100%{transform:scale(1) rotate(0)}}
+@media(max-width:700px){.flower-waiting-heading{grid-template-columns:1fr;gap:22px;margin-bottom:26px}.flower-waiting-heading h2{font-size:clamp(49px,13vw,76px)}.flower-waiting-art{grid-template-columns:1fr;gap:10px}.flower-stage{min-height:190px;flex-direction:row;justify-content:space-between;padding:12px 18px}.flower-stage svg{width:150px;height:160px}.flower-stage>span{width:90px;margin:0;text-align:right;line-height:1.7}.flower-waiting-replay{width:100%;margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.flower-waiting.is-bloomed .flower-stage svg,.flower-waiting.is-bloomed .waiting-leaf,.flower-waiting.is-bloomed .flower-stage-opening .waiting-opening-petals,.flower-waiting.is-bloomed .flower-stage-open .waiting-bloom-petals{animation:none!important}.flower-waiting-replay{transition:none}}
