@@ -218,3 +218,24 @@
 @keyframes waiting-leaf{0%{transform:scale(.35) rotate(-12deg)}100%{transform:scale(1) rotate(0)}}
 @media(max-width:700px){.flower-waiting-heading{grid-template-columns:1fr;gap:22px;margin-bottom:26px}.flower-waiting-heading h2{font-size:clamp(49px,13vw,76px)}.flower-waiting-art{grid-template-columns:1fr;gap:10px}.flower-stage{min-height:190px;flex-direction:row;justify-content:space-between;padding:12px 18px}.flower-stage svg{width:150px;height:160px}.flower-stage>span{width:90px;margin:0;text-align:right;line-height:1.7}.flower-waiting-replay{width:100%;margin-top:18px}}
 @media(prefers-reduced-motion:reduce){.flower-waiting.is-bloomed .flower-stage svg,.flower-waiting.is-bloomed .waiting-leaf,.flower-waiting.is-bloomed .flower-stage-opening .waiting-opening-petals,.flower-waiting.is-bloomed .flower-stage-open .waiting-bloom-petals{animation:none!important}.flower-waiting-replay{transition:none}}
+
+
+/* The last note from the garden */
+.garden-letter{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,70px);align-items:stretch;margin:42px 0 36px;padding:clamp(16px,2.4vw,28px);border:1px solid rgba(232,155,159,.24);background:linear-gradient(125deg,rgba(232,155,159,.055),rgba(255,255,255,.012) 55%,rgba(167,197,154,.045))}
+.garden-letter-photo{position:relative;min-height:300px;overflow:hidden;background:#111713}
+.garden-letter-photo img{object-fit:cover;filter:saturate(.83);transition:transform .8s ease,filter .5s}
+.garden-letter:hover .garden-letter-photo img{transform:scale(1.025);filter:saturate(1)}
+.garden-letter-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,12,9,.36),transparent 48%);pointer-events:none}
+.garden-letter-photo-mark{position:absolute;z-index:1;left:18px;bottom:15px;color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-style:italic}
+.garden-letter-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(5px,1.5vw,20px) 0}
+.garden-letter-kicker{margin:0 0 22px;color:var(--rose);font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.garden-letter-copy h3{margin:0 0 18px;font-family:'Playfair Display',serif;font-size:clamp(33px,4vw,52px);font-weight:400;letter-spacing:-.04em;line-height:1.05}
+.garden-letter-copy h3 em{color:var(--rose);font-weight:400}
+.garden-letter-thought{margin:0 0 16px;color:var(--text);font-family:'Playfair Display',serif;font-size:clamp(17px,1.7vw,22px);line-height:1.65}
+.garden-letter-note{margin:0;max-width:390px;color:var(--muted);font-size:11px;line-height:1.9}
+.garden-letter-replay{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:25px;padding:0 16px;border:1px solid rgba(232,155,159,.4);background:rgba(232,155,159,.045);color:var(--text);font-size:10px;letter-spacing:.035em;transition:background .2s,border-color .2s}
+.garden-letter-replay span{color:var(--rose);font-size:17px}
+.garden-letter-replay:hover{border-color:var(--rose);background:rgba(232,155,159,.1)}
+.garden-letter-replay:focus-visible{outline:1px solid var(--rose);outline-offset:4px}
+@media(max-width:700px){.garden-letter{grid-template-columns:1fr;gap:22px;margin:30px 0;padding:14px}.garden-letter-photo{min-height:260px;aspect-ratio:4/3}.garden-letter-copy{padding:0 4px 5px}.garden-letter-copy h3{font-size:39px}.garden-letter-replay{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.garden-letter-photo img,.garden-letter-replay{transition:none}}
