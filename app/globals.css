@@ -48,7 +48,7 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
 .hero-content .eyebrow:before { content: ''; width: 25px; height: 1px; background: var(--rose); }
 .hero-subtitle { max-width: 370px; font-size: 14px; line-height: 1.8; margin: 30px 0 34px; color: rgba(242, 240, 232, .75); }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 25px; }
-.button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 15px 19px; font-size: 10px; font-weight: 700; letter-spacing: .04em; border-radius: 2px; transition: transform .25s, background .25s, border-color .25s, color .25s; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 24px; min-height: 48px; font-size: 10px; font-weight: 700; letter-spacing: .04em; border-radius: 999px; transition: transform .25s, background .25s, border-color .25s, color .25s, box-shadow .25s; }
 .button:hover { transform: translateY(-3px); }
 .button svg { width: 14px; }
 .button-light { background: var(--rose); color: #1b1212; }
@@ -114,11 +114,11 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
 .cultivo-copy { max-width: 470px; }
 .cultivo-copy h2 { margin: 0 0 35px; }
 .cultivo-copy .eyebrow { color: var(--green); }
-.faith { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px !important; color: var(--rose) !important; cursor: pointer; }
-.faith:focus-visible { outline: 1px solid var(--rose); outline-offset: 8px; }
-.faith-more { display: flex; align-items: center; gap: 9px; margin-top: 22px; padding: 10px 0; border: 0; border-bottom: 1px solid rgba(232, 155, 159, .55); background: transparent; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 10px; font-style: normal; font-weight: 700; letter-spacing: .04em; cursor: pointer; transition: color .2s, border-color .2s; }
-.faith-more:hover { color: var(--rose-hot); border-color: var(--rose-hot); }
-.faith-more span { font-size: 16px; line-height: 10px; }
+.quote-card { margin: 34px 0; padding: 25px 24px; border: 1px solid rgba(232, 155, 159, .2); border-radius: 24px; background: linear-gradient(145deg, rgba(232, 155, 159, .07), rgba(16, 21, 18, .55)); }
+.faith { margin: 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px !important; line-height: 1.6; color: var(--rose) !important; }
+.faith-more { display: inline-flex; align-items: center; justify-content: center; gap: 9px; margin-top: 22px; min-height: 42px; padding: 0 18px 0 10px; border: 1px solid rgba(232, 155, 159, .5); border-radius: 999px; background: rgba(232, 155, 159, .1); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 10px; font-style: normal; font-weight: 700; letter-spacing: .04em; cursor: pointer; transition: color .2s, border-color .2s, background .2s, transform .2s; }
+.faith-more:hover { color: #1b1212; border-color: var(--rose-hot); background: var(--rose-hot); transform: translateY(-2px); }
+.quote-button-icon { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--rose); color: #1b1212; font-size: 17px; line-height: 1; }
 .sun-section { min-height: 620px; background: url('/images/adenium-collection-3.png') center/cover; color: var(--text); display: flex; align-items: center; padding: 80px clamp(24px, 12vw, 180px); position: relative; }
 .sun-section:before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7, 10, 8, .94), rgba(7, 10, 8, .48) 55%, rgba(7, 10, 8, .15)), linear-gradient(0deg, rgba(7, 10, 8, .4), transparent); }
 .sun-section>div { position: relative; max-width: 440px; }
