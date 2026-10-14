@@ -61,8 +61,8 @@ const translations = {
     footerText: 'Следить за коллекцией, обсудить выращивание или просто поздороваться.',
     footerSign: 'Создано с терпением и заботой',
     altHero: 'Адениум, роза пустыни, в золотистом свете',
-    gallery: ['Форма, созданная временем', 'Между землёй, солнцем и тишиной', 'Живые маленькие скульптуры', 'Сад, который постоянно меняется', 'Цветение с собственным характером', 'Красота в каждой детали', 'Форма, которой не повторить', 'Ещё одна история цветения'],
-    galleryAlt: ['Адениум в золотистом свете', 'Коллекция роз пустыни в глиняных горшках', 'Крупный план каудекса и цветка адениума', 'Розы пустыни в залитом солнцем саду', 'Роза пустыни из коллекции', 'Адениум из личной коллекции', 'Роза пустыни в саду', 'Цветок адениума'],
+    gallery: ["Розовый цветок в солнечном свете","Белые лепестки с малиновым краем","Цветение на фоне зелени","Нежные оттенки адениума","Цветок с выразительной формой","Ботаническая деталь","Цветение в мягком свете","Контраст лепестков и листвы","Экзотическая красота","Розовый адениум крупным планом","Цветок в естественной среде","Свет и тень на лепестках","Живые оттенки сада","Цветение среди зелёных листьев","Форма, созданная природой","Тонкие линии лепестков","Солнечный акцент в саду","Пышное цветение","Цветок в естественном свете","Красота в деталях","Из личной коллекции","Из личной коллекции","Из личной коллекции","Из личной коллекции"],
+    galleryAlt: ["Стоковая фотография адениума: розовый цветок в солнечном свете","Стоковая фотография адениума: белые лепестки с малиновым краем","Стоковая фотография адениума: цветение на фоне зелени","Стоковая фотография адениума: нежные оттенки адениума","Стоковая фотография адениума: цветок с выразительной формой","Стоковая фотография адениума: ботаническая деталь","Стоковая фотография адениума: цветение в мягком свете","Стоковая фотография адениума: контраст лепестков и листвы","Стоковая фотография адениума: экзотическая красота","Стоковая фотография адениума: розовый адениум крупным планом","Стоковая фотография адениума: цветок в естественной среде","Стоковая фотография адениума: свет и тень на лепестках","Стоковая фотография адениума: живые оттенки сада","Стоковая фотография адениума: цветение среди зелёных листьев","Стоковая фотография адениума: форма, созданная природой","Стоковая фотография адениума: тонкие линии лепестков","Стоковая фотография адениума: солнечный акцент в саду","Стоковая фотография адениума: пышное цветение","Стоковая фотография адениума: цветок в естественном свете","Стоковая фотография адениума: красота в деталях","Фотография розы пустыни из личной коллекции, снимок 1","Фотография розы пустыни из личной коллекции, снимок 2","Фотография розы пустыни из личной коллекции, снимок 3","Фотография розы пустыни из личной коллекции, снимок 4"],
     portraitAlt: 'Коллекция пустынных роз',
     portraitCaption: <>Внимательный взгляд<br />на всё, что растёт</>,
     lightboxLabel: 'Галерея фотографий',
@@ -118,8 +118,8 @@ const translations = {
     footerText: 'Acompanhe a coleção, compartilhe experiências de cultivo ou simplesmente diga olá.',
     footerSign: 'Cultivadas com paciência e carinho',
     altHero: 'Adenium, rosa do deserto, sob uma luz dourada',
-    gallery: ['Formas moldadas pelo tempo', 'Entre a terra, o sol e o silêncio', 'Pequenas esculturas vivas', 'Um jardim em constante transformação', 'Flores que têm personalidade', 'Beleza em cada detalhe', 'Uma forma impossível de repetir', 'Mais uma história de floração'],
-    galleryAlt: ['Adenium sob luz dourada', 'Coleção de rosas do deserto em vasos de barro', 'Detalhe do caudex e da flor de adenium', 'Rosas do deserto em um jardim ensolarado', 'Rosa do deserto da coleção', 'Adenium da coleção pessoal', 'Rosa do deserto no jardim', 'Flor de adenium'],
+    gallery: ["Flor rosa sob a luz do sol","Pétalas brancas com bordas pink","Flores contra o verde do jardim","Tons delicados de adenium","Uma flor de forma marcante","Detalhe botânico","Flores sob luz suave","Contraste entre pétalas e folhas","Beleza exótica","Adenium rosa em destaque","Flor em seu ambiente natural","Luz e sombra nas pétalas","Cores vivas do jardim","Flores entre folhas verdes","Uma forma criada pela natureza","Linhas delicadas das pétalas","Um toque de sol no jardim","Floração exuberante","Flor sob luz natural","Beleza nos detalhes","Da coleção pessoal","Da coleção pessoal","Da coleção pessoal","Da coleção pessoal"],
+    galleryAlt: ["Foto de stock de adenium: flor rosa sob a luz do sol","Foto de stock de adenium: pétalas brancas com bordas pink","Foto de stock de adenium: flores contra o verde do jardim","Foto de stock de adenium: tons delicados de adenium","Foto de stock de adenium: uma flor de forma marcante","Foto de stock de adenium: detalhe botânico","Foto de stock de adenium: flores sob luz suave","Foto de stock de adenium: contraste entre pétalas e folhas","Foto de stock de adenium: beleza exótica","Foto de stock de adenium: adenium rosa em destaque","Foto de stock de adenium: flor em seu ambiente natural","Foto de stock de adenium: luz e sombra nas pétalas","Foto de stock de adenium: cores vivas do jardim","Foto de stock de adenium: flores entre folhas verdes","Foto de stock de adenium: uma forma criada pela natureza","Foto de stock de adenium: linhas delicadas das pétalas","Foto de stock de adenium: um toque de sol no jardim","Foto de stock de adenium: floração exuberante","Foto de stock de adenium: flor sob luz natural","Foto de stock de adenium: beleza nos detalhes","Foto 1 de rosa do deserto da coleção pessoal","Foto 2 de rosa do deserto da coleção pessoal","Foto 3 de rosa do deserto da coleção pessoal","Foto 4 de rosa do deserto da coleção pessoal"],
     portraitAlt: 'Coleção de rosas do deserto',
     portraitCaption: <>Um olhar atento<br />para tudo que cresce</>,
     lightboxLabel: 'Galeria de fotos',
@@ -175,8 +175,8 @@ const translations = {
     footerText: 'Follow the collection, talk about growing, or simply stop by to say hello.',
     footerSign: 'Grown with patience and care',
     altHero: 'Desert rose adenium in golden light',
-    gallery: ['Shaped by time', 'Between earth, sun, and silence', 'Small living sculptures', 'A garden in constant change', 'Blooms with character', 'Beauty in every detail', 'A one-of-a-kind form', 'Another story of blooming'],
-    galleryAlt: ['Adenium in golden light', 'Desert rose collection in clay pots', 'Close-up of an adenium caudex and flower', 'Desert roses in a sunlit garden', 'Desert rose from the collection', 'Adenium from the personal collection', 'Desert rose in the garden', 'Adenium flower'],
+    gallery: ["Pink bloom in sunlight","White petals with pink edges","Flowers against garden greenery","Delicate adenium shades","A flower with a striking shape","Botanical detail","Blooms in soft light","Petals contrasted with foliage","Exotic beauty","Pink adenium close-up","A flower in its natural setting","Light and shadow on petals","Garden colors in bloom","Flowers among green leaves","A shape created by nature","Delicate lines of petals","A sunny accent in the garden","Lush flowering","A bloom in natural light","Beauty in the details","From the personal collection","From the personal collection","From the personal collection","From the personal collection"],
+    galleryAlt: ["Stock photo of adenium: pink bloom in sunlight","Stock photo of adenium: white petals with pink edges","Stock photo of adenium: flowers against garden greenery","Stock photo of adenium: delicate adenium shades","Stock photo of adenium: a flower with a striking shape","Stock photo of adenium: botanical detail","Stock photo of adenium: blooms in soft light","Stock photo of adenium: petals contrasted with foliage","Stock photo of adenium: exotic beauty","Stock photo of adenium: pink adenium close-up","Stock photo of adenium: a flower in its natural setting","Stock photo of adenium: light and shadow on petals","Stock photo of adenium: garden colors in bloom","Stock photo of adenium: flowers among green leaves","Stock photo of adenium: a shape created by nature","Stock photo of adenium: delicate lines of petals","Stock photo of adenium: a sunny accent in the garden","Stock photo of adenium: lush flowering","Stock photo of adenium: a bloom in natural light","Stock photo of adenium: beauty in the details","Desert rose from the personal collection, photo 1","Desert rose from the personal collection, photo 2","Desert rose from the personal collection, photo 3","Desert rose from the personal collection, photo 4"],
     portraitAlt: 'Desert rose collection',
     portraitCaption: <>A thoughtful eye<br />for everything that grows</>,
     lightboxLabel: 'Photo gallery',
@@ -187,11 +187,29 @@ const translations = {
   },
 }
 
+const heroImage = '/images/adenium-hero.png'
+
 const gallery = [
-  '/images/adenium-hero.png',
-  '/images/adenium-collection-1.png',
-  '/images/adenium-collection-2.png',
-  '/images/adenium-collection-3.png',
+  'https://images.pexels.com/photos/36972747/pexels-photo-36972747.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/15507957/pexels-photo-15507957.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/36602431/pexels-photo-36602431.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/36602429/pexels-photo-36602429.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/31230149/pexels-photo-31230149.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/37037717/pexels-photo-37037717.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/31423183/pexels-photo-31423183.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/29357901/pexels-photo-29357901.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/35256058/pexels-photo-35256058.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/21283460/pexels-photo-21283460.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/29357905/pexels-photo-29357905.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/33971677/pexels-photo-33971677.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/26851060/pexels-photo-26851060.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/16251764/pexels-photo-16251764.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/32054697/pexels-photo-32054697.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/17800760/pexels-photo-17800760.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/19264236/pexels-photo-19264236.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/36590794/pexels-photo-36590794.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/34524697/pexels-photo-34524697.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  'https://images.pexels.com/photos/37091240/pexels-photo-37091240.jpeg?auto=compress&cs=tinysrgb&w=1400',
   '/images/photo_2026-10-02_00-09-56%20(2).jpg',
   '/images/photo_2026-10-02_00-09-56.jpg',
   '/images/photo_2026-10-02_00-09-57%20(2).jpg',
@@ -292,7 +310,7 @@ export default function Page() {
         </div>
       </header>
       <section className="hero" id="inicio">
-        <Image className="hero-image" src={gallery[0]} alt={t.altHero} fill priority sizes="100vw" />
+        <Image className="hero-image" src={heroImage} alt={t.altHero} fill priority sizes="100vw" />
         <div className="hero-shade" />
 
         <div className="hero-content">
@@ -307,7 +325,7 @@ export default function Page() {
 
       <section className="intro section-pad"><div className="section-kicker"><span>01</span><span>{t.introKicker}</span></div><div className="intro-grid"><h2>{t.introTitle}</h2><div className="intro-copy"><p className="lead">{t.introLead}</p><p>{t.introText}</p><a className="text-link dark" href="#natanael">{t.introLink} <span>↗</span></a></div></div></section>
 
-      <section className="collection section-pad" id="colecao"><div className="section-kicker"><span>02</span><span>{t.collectionKicker}</span></div><div className="collection-heading"><h2>{t.collectionTitle}</h2><p>{t.collectionText}</p></div><div className="editorial-gallery" id="galeria">{gallery.slice(1).map((src, index) => <button key={src} className={`gallery-tile tile-${index + 1}`} onClick={() => setLightboxIndex(index + 1)}><Image src={src} alt={t.galleryAlt[index]} fill sizes="(max-width: 700px) 100vw, 50vw" /><span>{t.gallery[index]}</span></button>)}</div><div className="gallery-note">{t.galleryHint} <span>↗</span></div></section>
+      <section className="collection section-pad" id="colecao"><div className="section-kicker"><span>02</span><span>{t.collectionKicker}</span></div><div className="collection-heading"><h2>{t.collectionTitle}</h2><p>{t.collectionText}</p></div><div className="editorial-gallery" id="galeria">{gallery.map((src, index) => <button key={src} className={`gallery-tile tile-${index + 1}`} onClick={() => setLightboxIndex(index + 1)}><Image src={src} alt={t.galleryAlt[index]} fill sizes="(max-width: 700px) 100vw, 50vw" /><span>{t.gallery[index]}</span></button>)}</div><div className="gallery-note">{t.galleryHint} <span>↗</span></div></section>
 
       <section className="story dark-section"><div className="story-image"><Image src={gallery[2]} alt={t.galleryAlt[2]} fill sizes="50vw" /></div><div className="story-copy"><div className="section-kicker light"><span>03</span><span>{t.storyKicker}</span></div><h2>{t.storyTitle}</h2><p>{t.storyText1}</p><p>{t.storyText2}</p><span className="story-sign">— {t.storySign}</span></div></section>
 
