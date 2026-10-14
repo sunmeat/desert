@@ -6,6 +6,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, Camera, Menu, Pause, Play, X } from '
 import FlowerAtlas from '@/components/flower-atlas'
 import CareCalendar from '@/components/care-calendar'
 import SilenceGarden from '@/components/silence-garden'
+import FlowerWaiting from '@/components/flower-waiting'
 
 type Locale = 'pt' | 'ru' | 'en'
 
@@ -54,6 +55,11 @@ const translations = {
     futureEyebrow: 'Сад продолжает расти',
     futureTitle: <>Возможно, одна из них<br /><em>станет вашей.</em></>,
     futureText: 'Коллекция пополняется. Чтобы узнать о растениях или обсудить выращивание, свяжитесь с Натаниэлем через Instagram.',
+    waitingEyebrow: 'O tempo de florescer',
+    waitingTitle: <>Ожидание<br /><em>цветка.</em></>,
+    waitingText: 'Небольшая визуальная история о том, как появляется бутон, раскрываются лепестки и меняется цветок.',
+    waitingStages: ['Бутон', 'Раскрытие', 'Цветение'],
+    waitingButton: 'Увидеть цветение ещё раз',
     contactButton: 'Связаться со мной',
     instagramKicker: 'Следите за коллекцией',
     instagramTitle: <>Больше цветов<br /><em>каждый день.</em></>,
@@ -110,6 +116,11 @@ const translations = {
     futureEyebrow: 'O jardim continua crescendo',
     futureTitle: <>Quem sabe uma delas<br /><em>encontre um novo lar.</em></>,
     futureText: 'Para saber mais sobre a coleção ou conversar sobre as plantas, entre em contato com Natanael pelo Instagram.',
+    waitingEyebrow: 'O tempo de florescer',
+    waitingTitle: <>A espera<br /><em>da flor.</em></>,
+    waitingText: 'Uma pequena história visual: o botão nasce, as pétalas se abrem e a flor revela sua forma.',
+    waitingStages: ['Botão', 'Abertura', 'Floração'],
+    waitingButton: 'Ver a flor desabrochar novamente',
     contactButton: 'Fale comigo',
     instagramKicker: 'Acompanhe a coleção',
     instagramTitle: <>Mais flores<br /><em>e descobertas.</em></>,
@@ -166,6 +177,11 @@ const translations = {
     futureEyebrow: 'The garden keeps growing',
     futureTitle: <>Perhaps one of them<br /><em>will find a new home.</em></>,
     futureText: 'To learn more about the collection or talk about the plants, contact Natanael through Instagram.',
+    waitingEyebrow: 'The time to bloom',
+    waitingTitle: <>Waiting<br /><em>for a flower.</em></>,
+    waitingText: 'A small visual story of a bud appearing, petals opening, and a flower changing into its full form.',
+    waitingStages: ['The bud', 'Unfolding', 'In bloom'],
+    waitingButton: 'Watch the flower bloom again',
     contactButton: 'Get in touch',
     instagramKicker: 'Follow the collection',
     instagramTitle: <>More flowers<br /><em>and discoveries.</em></>,
@@ -339,6 +355,8 @@ export default function Page() {
       <section className="sun-section"><div><span className="sun-symbol">✳</span><h2>{t.sunTitle}</h2><p>{t.sunText}</p></div></section>
 
       <section className="future section-pad"><div className="future-inner"><p className="eyebrow">{t.futureEyebrow}</p><h2>{t.futureTitle}</h2><p>{t.futureText}</p><a className="button button-dark" href="#contato">{t.contactButton} <span>↗</span></a></div></section>
+
+      <FlowerWaiting locale={locale} />
 
       <SilenceGarden locale={locale} />
 
