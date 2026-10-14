@@ -186,7 +186,8 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   evening: { src:'https://orangefreesounds.com/wp-content/uploads/2026/06/Evening-nature-ambience-with-birds-singing-and-crickets-sound-effect.mp3', credit:'Evening Nature Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/evening-nature-ambience-with-birds-singing-and-crickets-sound-effect/' },
   thunder: { src:'https://orangefreesounds.com/wp-content/uploads/2022/08/Rain-and-thunder-with-ocean-waves-sound-effect.mp3', credit:'Rain and Thunder with Ocean Waves · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/rain-and-thunder-with-ocean-waves-sound-effect/' },
   meadow: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Relaxing-evening-meadow-ambience-sound-effect.mp3', credit:'Relaxing Evening Meadow Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/relaxing-evening-meadow-ambience-sound-effect/' },
-  morning: { src:'https://orangefreesounds.com/wp-content/uploads/2026/06/Bird-singing-and-forest-stream-sound-effect.mp3', credit:'Bird Singing and Forest Stream · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/bird-singing-and-forest-stream-sound-effect/' }
+  morning: { src:'https://orangefreesounds.com/wp-content/uploads/2026/06/Bird-singing-and-forest-stream-sound-effect.mp3', credit:'Bird Singing and Forest Stream · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/bird-singing-and-forest-stream-sound-effect/' },
+  springForest: { src:'https://orangefreesounds.com/wp-content/uploads/2020/03/Spring-forest-ambience.mp3', credit:'Spring Forest Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-forest-ambience/' }
 }
 
 const copy = {
