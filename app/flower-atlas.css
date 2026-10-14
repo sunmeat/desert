@@ -265,8 +265,8 @@
 .garden-letter-note{align-self:start}
 .garden-letter-actions{align-self:end;margin-top:16px}
 .mobile-garden-link{display:none}
-.silence-standalone{position:relative;inset:auto;min-height:100svh;overflow:visible}
-.silence-standalone .silence-modal-content{min-height:100svh}
+.silence-standalone{position:fixed;inset:0;min-height:100svh;height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+.silence-standalone .silence-modal-content{min-height:100%;height:auto}
 .zen-garden-page{min-height:100svh;background:#090d0a}
 @media(max-width:700px){
   .garden-letter{height:auto;min-height:0;grid-template-columns:minmax(0,1fr);gap:20px}
@@ -282,3 +282,14 @@
 .garden-letter-thought{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5}
 .mobile-garden-link{width:30px;flex:0 0 30px;padding:0;font-size:15px}
 @media(max-width:700px){.garden-letter-thought{-webkit-line-clamp:5}}
+
+/* Standalone garden keeps the original full-screen, scrollable experience. */
+.silence-standalone{position:fixed;inset:0;min-height:100svh;height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+.silence-standalone .silence-modal-content{min-height:100%;height:auto}
+.silence-standalone .silence-modal-header{grid-template-columns:1fr auto}
+.silence-standalone .silence-exit{grid-column:2;justify-self:end}
+.silence-standalone .silence-main{flex:0 0 auto}
+@media(max-width:700px){
+  .silence-standalone .silence-modal-header{grid-template-columns:1fr auto}
+  .silence-standalone .silence-main{width:calc(100% - 32px);padding:32px 0 30px}
+}
