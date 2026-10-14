@@ -253,3 +253,28 @@
 .garden-letter-contact:focus-visible{outline:1px solid var(--green);outline-offset:4px}
 @media(max-width:700px){.garden-letter-actions{display:grid;grid-template-columns:1fr;gap:9px}.garden-letter-actions .garden-letter-replay,.garden-letter-contact{width:100%;justify-content:center}.garden-letter-contact{min-height:48px}}
 @media(prefers-reduced-motion:reduce){.garden-letter-contact{transition:none}}
+
+
+/* Keep the farewell card and its actions steady as the photo and quote change. */
+.garden-letter{height:560px;min-height:560px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:stretch}
+.garden-letter-photo{height:100%;min-height:0;aspect-ratio:auto}
+.garden-letter-copy{min-height:0;display:grid;grid-template-rows:auto auto minmax(130px,1fr) auto auto;align-content:stretch;justify-content:initial}
+.garden-letter-kicker{margin-bottom:15px}
+.garden-letter-copy h3{margin-bottom:14px}
+.garden-letter-thought{min-height:0;margin:0 0 12px;overflow:hidden}
+.garden-letter-note{align-self:start}
+.garden-letter-actions{align-self:end;margin-top:16px}
+.mobile-garden-link{display:none}
+.silence-standalone{position:relative;inset:auto;min-height:100svh;overflow:visible}
+.silence-standalone .silence-modal-content{min-height:100svh}
+.zen-garden-page{min-height:100svh;background:#090d0a}
+@media(max-width:700px){
+  .garden-letter{height:auto;min-height:0;grid-template-columns:minmax(0,1fr);gap:20px}
+  .garden-letter-photo{height:auto;min-height:0;aspect-ratio:4/3}
+  .garden-letter-copy{min-height:490px;grid-template-rows:auto auto minmax(150px,1fr) auto auto;padding:0 4px 4px}
+  .garden-letter-thought{font-size:clamp(17px,4.6vw,20px);line-height:1.55}
+  .garden-letter-actions{margin-top:18px}
+  .mobile-garden-link{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 9px;border:1px solid rgba(167,197,154,.35);color:var(--text);font-size:9px;white-space:nowrap}
+  .silence-standalone .silence-main{padding-top:32px}
+  .silence-standalone .silence-modal-header{grid-template-columns:1fr auto}
+}
