@@ -202,7 +202,8 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   windyForest: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Birds-singing-in-windy-forest-sound-effect.mp3', credit:'Birds Singing in Windy Forest · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/birds-singing-in-windy-forest-sound-effect/' },
   rainBirds: { src:'https://orangefreesounds.com/wp-content/uploads/2021/03/Nature-sounds-birds-and-rain.mp3', credit:'Nature Sounds Birds and Rain · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/nature-sounds-birds-and-rain/' },
   morningBirds: { src:'https://orangefreesounds.com/wp-content/uploads/2023/03/Spring-birds-chirping-sound-effect.mp3', credit:'Spring Birds Chirping · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-birds-chirping-sound-effect/' },
-  gardenBirds: { src:'https://orangefreesounds.com/wp-content/uploads/2015/05/Birds-singing-in-my-garden.mp3', credit:'Birds Singing in My Garden · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/birds-singing-in-my-garden/' }
+  gardenBirds: { src:'https://orangefreesounds.com/wp-content/uploads/2015/05/Birds-singing-in-my-garden.mp3', credit:'Birds Singing in My Garden · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/birds-singing-in-my-garden/' },
+  cityPark: { src:'https://orangefreesounds.com/wp-content/uploads/2022/10/City-park-ambience.mp3', credit:'City Park Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/city-park-ambience/' }
 }
 
 const copy = {
