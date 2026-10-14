@@ -229,31 +229,11 @@ export default function Page() {
   }, [locale])
 
   const tracks = [
-    {
-      title: 'Tico Tico no Fubá',
-      artist: 'Orquestra Colbaz (1931)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Tico_Tico_no_Fub%C3%A1-Orquestra_Colbaz-Zequinha_de_Abreu-1931.ogg',
-    },
-    {
-      title: 'O Urubu e o Gavião',
-      artist: 'Pixinguinha (1930)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pixinguinha-_O_Urubu_e_o_Gaviao_1930.ogg',
-    },
-    {
-      title: 'Samba de fato',
-      artist: 'Patrício Teixeira e Trio T.B.T. (1932)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Samba_de_fato_1932.ogg',
-    },
-    {
-      title: 'Na Pavuna',
-      artist: 'Almirante (1929)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Na_Pavuna-Almirante-Homero_Dornelas1929.ogg',
-    },
-    {
-      title: 'Pelo Telefone',
-      artist: 'Donga (1916)',
-      url: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pelo_Telephone_%281916%29.ogg',
-    },
+    '/audio/21681844.mp3',
+    '/audio/24456733.mp3',
+    '/audio/59501523.mp3',
+    '/audio/62439467.mp3',
+    '/audio/151030555.mp3',
   ]
 
   const playRandomTrack = async () => {
@@ -266,7 +246,7 @@ export default function Page() {
     }
 
     previousTrackRef.current = nextTrack
-    audio.src = tracks[nextTrack].url
+    audio.src = tracks[nextTrack]
     audio.load()
 
     try {
