@@ -191,7 +191,8 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   springGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Spring-garden-ambience-with-bees-birds-and-insects-sound-effect.mp3', credit:'Spring Garden Ambience With Bees, Birds And Insects · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-garden-ambience-with-bees-birds-and-insects-sound-effect/' },
   rainforest: { src:'https://orangefreesounds.com/wp-content/uploads/2016/04/Rainforest-sounds.mp3', credit:'Rainforest Sounds · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/rainforest-sounds/' },
   forestDay: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' },
-  garden: { src:'https://orangefreesounds.com/wp-content/uploads/2022/06/Garden-ambience-sound-effect.mp3', credit:'Garden Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/garden-ambience-sound-effect/' }
+  garden: { src:'https://orangefreesounds.com/wp-content/uploads/2022/06/Garden-ambience-sound-effect.mp3', credit:'Garden Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/garden-ambience-sound-effect/' },
+  springGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2020/03/Spring-forest-ambience.mp3', credit:'Spring Forest Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-forest-ambience/' }
 }
 
 const copy = {
