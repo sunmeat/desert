@@ -278,3 +278,7 @@
   .silence-standalone .silence-main{padding-top:32px}
   .silence-standalone .silence-modal-header{grid-template-columns:1fr auto}
 }
+
+.garden-letter-thought{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5}
+.mobile-garden-link{width:30px;flex:0 0 30px;padding:0;font-size:15px}
+@media(max-width:700px){.garden-letter-thought{-webkit-line-clamp:5}}
