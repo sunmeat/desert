@@ -2,7 +2,7 @@
 
 ### Uma coleção botânica digital sobre formas, cores e o tempo de florescer
 
-[![Site](https://img.shields.io/badge/site-rosol.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://rosol.vercel.app)
+[![Site](https://img.shields.io/badge/site-natadenium.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://natadenium.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-111111?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -12,7 +12,7 @@
 
 A identidade visual usa fundos profundos, tons de rosa suave e verde-sálvia, tipografia editorial e movimento discreto. A experiência está disponível em português brasileiro, russo e inglês, com navegação adaptável a telas grandes e pequenas.
 
-**Visite o site:** https://rosol.vercel.app
+**Visite o site:** https://natadenium.vercel.app
 
 ## 🌺 O que o projeto oferece
 
@@ -21,7 +21,7 @@ A identidade visual usa fundos profundos, tons de rosa suave e verde-sálvia, ti
 - **Comparação de flores:** escolha até duas flores para observá-las lado a lado em uma área de comparação ampla.
 - **Calendário de cuidados:** orientações sazonais sobre luz, rega, adubação, transplante e temperatura.
 - **Animação de floração:** uma pequena narrativa SVG que percorre três etapas, do botão à flor aberta, com opção de repetir a animação.
-- **Jardim de pensamentos:** uma experiência independente em [/zen_garden](https://rosol.vercel.app/zen_garden), com 50 reflexões, botão para sortear outra mensagem e paisagens sonoras da natureza.
+- **Jardim de pensamentos:** uma experiência independente em [/zen_garden](https://natadenium.vercel.app/zen_garden), com 50 reflexões, botão para sortear outra mensagem e paisagens sonoras da natureza.
 - **Áudio ambiente:** diferentes sons podem ser combinados; cada faixa ativa fica em repetição até ser desligada. Ao entrar no jardim independente, a música da página principal é pausada e pode ser retomada ao voltar.
 - **Carta do jardim:** uma fotografia e uma reflexão mudam ao pedir outra carta.
 - **Três idiomas:** português brasileiro (padrão), russo e inglês.
@@ -37,7 +37,7 @@ O atlas é uma experiência própria, separada da galeria principal. Ele reúne 
 
 ### Jardim de pensamentos
 
-O jardim também pode ser aberto diretamente, sem passar pela página principal: [rosol.vercel.app/zen_garden](https://rosol.vercel.app/zen_garden). As 50 reflexões abordam paciência, cuidado, natureza, limites e convivência. A paisagem sonora permite combinar gravações de chuva, pássaros, vento e outros ambientes naturais. Os créditos das gravações ficam disponíveis na própria página.
+O jardim também pode ser aberto diretamente, sem passar pela página principal: [natadenium.vercel.app/zen_garden](https://natadenium.vercel.app/zen_garden). As 50 reflexões abordam paciência, cuidado, natureza, limites e convivência. A paisagem sonora permite combinar gravações de chuva, pássaros, vento e outros ambientes naturais. Os créditos das gravações ficam disponíveis na própria página.
 
 ### Calendário de cuidados e floração
 
@@ -149,8 +149,8 @@ O projeto está hospedado na Vercel. Para configurar uma nova implantação:
 3. Confira o comando de build `pnpm build`.
 4. Publique a branch principal e valide a versão publicada.
 
-**Site:** https://rosol.vercel.app  
-**Jardim de pensamentos:** https://rosol.vercel.app/zen_garden
+**Site:** https://natadenium.vercel.app  
+**Jardim de pensamentos:** https://natadenium.vercel.app/zen_garden
 
 ---
 
@@ -164,7 +164,7 @@ Feito para celebrar a beleza das rosas-do-deserto por meio de fotografia, cuidad
 
 ### Цифровая ботаническая коллекция о форме, цвете и времени цветения
 
-[![Сайт](https://img.shields.io/badge/сайт-rosol.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://rosol.vercel.app)
+[![Сайт](https://img.shields.io/badge/сайт-natadenium.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://natadenium.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-111111?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -173,7 +173,7 @@ Feito para celebrar a beleza das rosas-do-deserto por meio de fotografia, cuidad
 
 Визуальная система построена на глубоких тёмных оттенках, мягком розовом, шалфейном зелёном, выразительной типографике и сдержанной анимации. Сайт доступен на бразильском португальском, русском и английском языках и адаптируется к большим и маленьким экранам.
 
-**Открыть сайт:** https://rosol.vercel.app
+**Открыть сайт:** https://natadenium.vercel.app
 
 ## 🌺 Возможности проекта
 
@@ -182,7 +182,7 @@ Feito para celebrar a beleza das rosas-do-deserto por meio de fotografia, cuidad
 - **Сравнение цветов:** выбор до двух цветов для крупного просмотра рядом друг с другом.
 - **Календарь ухода:** сезонные рекомендации по освещению, поливу, подкормке, пересадке и температуре.
 - **Анимация цветения:** SVG-история из трёх этапов, от бутона до раскрытого цветка, с возможностью запустить её повторно.
-- **Сад мыслей:** самостоятельная страница [/zen_garden](https://rosol.vercel.app/zen_garden) с 50 размышлениями, кнопкой для смены текста и звуковыми ландшафтами природы.
+- **Сад мыслей:** самостоятельная страница [/zen_garden](https://natadenium.vercel.app/zen_garden) с 50 размышлениями, кнопкой для смены текста и звуковыми ландшафтами природы.
 - **Фоновое аудио:** разные звуки природы можно сочетать; активные дорожки повторяются до отключения. При переходе в отдельный сад музыка главной страницы ставится на паузу и может продолжиться после возвращения.
 - **Письмо из сада:** при запросе нового письма меняются фотография и размышление.
 - **Три языка:** бразильский португальский по умолчанию, русский и английский.
@@ -198,7 +198,7 @@ Feito para celebrar a beleza das rosas-do-deserto por meio de fotografia, cuidad
 
 ### Сад мыслей
 
-Сад открывается напрямую по адресу [rosol.vercel.app/zen_garden](https://rosol.vercel.app/zen_garden). В нём собраны 50 размышлений о терпении, заботе, природе, личных границах и отношениях между людьми. Звуковая среда позволяет сочетать записи дождя, птиц, ветра и других природных явлений. Ссылки на источники аудио доступны внизу страницы.
+Сад открывается напрямую по адресу [natadenium.vercel.app/zen_garden](https://natadenium.vercel.app/zen_garden). В нём собраны 50 размышлений о терпении, заботе, природе, личных границах и отношениях между людьми. Звуковая среда позволяет сочетать записи дождя, птиц, ветра и других природных явлений. Ссылки на источники аудио доступны внизу страницы.
 
 ### Календарь ухода и цветение
 
@@ -310,8 +310,8 @@ public/
 3. Проверьте команду сборки `pnpm build`.
 4. Опубликуйте основную ветку и проверьте работающую версию сайта.
 
-**Сайт:** https://rosol.vercel.app  
-**Сад мыслей:** https://rosol.vercel.app/zen_garden
+**Сайт:** https://natadenium.vercel.app  
+**Сад мыслей:** https://natadenium.vercel.app/zen_garden
 
 ---
 
@@ -325,7 +325,7 @@ public/
 
 ### A digital botanical collection about form, color, and the time it takes to bloom
 
-[![Website](https://img.shields.io/badge/site-rosol.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://rosol.vercel.app)
+[![Website](https://img.shields.io/badge/site-natadenium.vercel.app-20251f?style=for-the-badge&logo=vercel&logoColor=white)](https://natadenium.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-111111?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -334,7 +334,7 @@ public/
 
 The visual identity combines deep backgrounds, muted pink and sage-green accents, editorial typography, and restrained motion. The experience is available in Brazilian Portuguese, Russian, and English, with layouts designed for both large and small screens.
 
-**Visit the website:** https://rosol.vercel.app
+**Visit the website:** https://natadenium.vercel.app
 
 ## 🌺 What the project includes
 
@@ -343,7 +343,7 @@ The visual identity combines deep backgrounds, muted pink and sage-green accents
 - **Flower comparison:** select up to two flowers and view them side by side in a spacious comparison area.
 - **Care calendar:** seasonal guidance covering light, watering, feeding, repotting, and temperature.
 - **Bloom animation:** a three-stage SVG story from bud to open flower, with a replay control.
-- **Garden of Thoughts:** a standalone experience at [/zen_garden](https://rosol.vercel.app/zen_garden), featuring 50 reflections, a button for another thought, and natural soundscapes.
+- **Garden of Thoughts:** a standalone experience at [/zen_garden](https://natadenium.vercel.app/zen_garden), featuring 50 reflections, a button for another thought, and natural soundscapes.
 - **Ambient audio:** multiple nature sounds can be combined, and each active track loops until turned off. Entering the standalone garden pauses the homepage music, which can resume when returning.
 - **Garden letter:** request another letter to reveal a different photograph and reflection.
 - **Three languages:** Brazilian Portuguese by default, Russian, and English.
@@ -359,7 +359,7 @@ The Atlas is a standalone feature, separate from the main gallery. It helps visi
 
 ### Garden of Thoughts
 
-The garden can be opened directly at [rosol.vercel.app/zen_garden](https://rosol.vercel.app/zen_garden), without first visiting the homepage. Its 50 reflections explore patience, care, nature, boundaries, and relationships. Visitors can layer recordings of rain, birds, wind, and other natural environments. Audio source credits are available at the bottom of the page.
+The garden can be opened directly at [natadenium.vercel.app/zen_garden](https://natadenium.vercel.app/zen_garden), without first visiting the homepage. Its 50 reflections explore patience, care, nature, boundaries, and relationships. Visitors can layer recordings of rain, birds, wind, and other natural environments. Audio source credits are available at the bottom of the page.
 
 ### Care calendar and bloom story
 
@@ -471,8 +471,8 @@ The project is hosted on Vercel. To set up a new deployment:
 3. Verify the build command is `pnpm build`.
 4. Deploy the main branch and check the published website.
 
-**Website:** https://rosol.vercel.app  
-**Garden of Thoughts:** https://rosol.vercel.app/zen_garden
+**Website:** https://natadenium.vercel.app  
+**Garden of Thoughts:** https://natadenium.vercel.app/zen_garden
 
 ---
 
