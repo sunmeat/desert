@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Bird, CloudRain, Leaf, RefreshCw, Wind, X, Flame, TreeDeciduous, Droplets, Waves, Music, Coffee, Drum, CircleDot, Flower2, Sprout, Bug, CloudLightning, Trees } from 'lucide-react'
 
 type Locale = 'pt' | 'ru' | 'en'
-type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'birds' | 'wind' | 'cicadas' | 'fire' | 'wood' | 'irrigation' | 'chimes' | 'stream' | 'thunder' | 'bees' | 'tribal' | 'bowls' | 'crickets' | 'bumblebees' | 'frogs' | 'dawnBirds' | 'leafDrops' | 'meadow' | 'wetGarden' | 'roseStems' | 'forest' | 'jungle' | 'ocean' | 'guitarCafe' | 'rioCafe' | 'carnival' | 'atabaque' | 'iguazu' | 'brazilMorning'
+type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning'
 
 const quotes: Record<Locale, string[]> = {
   ru: [
