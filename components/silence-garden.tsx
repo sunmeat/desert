@@ -166,9 +166,9 @@ const quotes: Record<Locale, string[]> = {
 }
 
 const copy = {
-  ru: { title: 'Сад тишины', subtitle: 'Небольшое место, чтобы замедлиться.', invitation: 'Иногда достаточно просто побыть здесь.', day: 'Размышление дня', next: 'Другая мысль', sounds: 'Звуки сада', rain: 'Дождь', birds: 'Пение птиц', wind: 'Ветер', garden: 'Живой сад', exit: 'Выйти из сада', hint: 'Звуки можно сочетать. Включайте только то, что хочется услышать.', open: 'Войти в сад тишины', kicker: 'Место для паузы', intro: 'О терпении, заботе и времени' },
-  pt: { title: 'Jardim do silêncio', subtitle: 'Um pequeno lugar para desacelerar.', invitation: 'Às vezes, basta simplesmente estar aqui.', day: 'Reflexão do dia', next: 'Outra reflexão', sounds: 'Sons do jardim', rain: 'Chuva', birds: 'Pássaros', wind: 'Vento', garden: 'Vida no jardim', exit: 'Sair do jardim', hint: 'Você pode combinar os sons. Ative apenas o que deseja ouvir.', open: 'Entrar no jardim do silêncio', kicker: 'Um lugar para pausar', intro: 'Sobre paciência, cuidado e tempo' },
-  en: { title: 'Garden of quiet', subtitle: 'A small place to slow down.', invitation: 'Sometimes it is enough to simply be here.', day: 'Reflection of the day', next: 'Another reflection', sounds: 'Garden sounds', rain: 'Rain', birds: 'Birdsong', wind: 'Wind', garden: 'Living garden', exit: 'Leave the garden', hint: 'Sounds can be combined. Turn on only what you feel like hearing.', open: 'Enter the garden of quiet', kicker: 'A place to pause', intro: 'On patience, care, and time' }
+  ru: { soundEyebrow: 'ЗВУКИ ПРИРОДЫ', footerLine: 'ПАУЗА · ЗАБОТА · ПРИСУТСТВИЕ', brand: 'РОЗЫ ПУСТЫНИ', title: 'Сад тишины', subtitle: 'Небольшое место, чтобы замедлиться.', invitation: 'Иногда достаточно просто побыть здесь.', day: 'Размышление дня', next: 'Другая мысль', sounds: 'Звуки сада', rain: 'Дождь', birds: 'Пение птиц', wind: 'Ветер', garden: 'Живой сад', exit: 'Выйти из сада', hint: 'Звуки можно сочетать. Включайте только то, что хочется услышать.', open: 'Войти в сад тишины', kicker: 'Место для паузы', intro: 'О терпении, заботе и времени' },
+  pt: { soundEyebrow: 'SONS DA NATUREZA', footerLine: 'PAUSA · CUIDADO · PRESENÇA', brand: 'ROSAS DO DESERTO', title: 'Jardim do silêncio', subtitle: 'Um pequeno lugar para desacelerar.', invitation: 'Às vezes, basta simplesmente estar aqui.', day: 'Reflexão do dia', next: 'Outra reflexão', sounds: 'Sons do jardim', rain: 'Chuva', birds: 'Pássaros', wind: 'Vento', garden: 'Vida no jardim', exit: 'Sair do jardim', hint: 'Você pode combinar os sons. Ative apenas o que deseja ouvir.', open: 'Entrar no jardim do silêncio', kicker: 'Um lugar para pausar', intro: 'Sobre paciência, cuidado e tempo' },
+  en: { soundEyebrow: 'SOUNDS OF NATURE', footerLine: 'PAUSE · CARE · PRESENCE', brand: 'DESERT ROSES', title: 'Garden of quiet', subtitle: 'A small place to slow down.', invitation: 'Sometimes it is enough to simply be here.', day: 'Reflection of the day', next: 'Another reflection', sounds: 'Garden sounds', rain: 'Rain', birds: 'Birdsong', wind: 'Wind', garden: 'Living garden', exit: 'Leave the garden', hint: 'Sounds can be combined. Turn on only what you feel like hearing.', open: 'Enter the garden of quiet', kicker: 'A place to pause', intro: 'On patience, care, and time' }
 }
 
 type AudioContextWindow = Window & { webkitAudioContext?: typeof AudioContext }
@@ -254,11 +254,9 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
     } else if (key === 'birds') {
       const playBirds = () => {
         if (disposed) return
-        const now = context.currentTime
         chirp(1800 + Math.random() * 1000, 0.16)
         if (Math.random() > 0.42) chirp(2300 + Math.random() * 1200, 0.12, 0.22)
         if (Math.random() > 0.65) chirp(1500 + Math.random() * 900, 0.18, 0.48)
-        void now
       }
       playBirds()
       interval = window.setInterval(playBirds, 1900 + Math.random() * 1400)
@@ -342,7 +340,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
         <div className="silence-modal-backdrop" aria-hidden="true" />
         <div className="silence-modal-content">
           <header className="silence-modal-header">
-            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><Leaf /><span>ROSAS DO DESERTO</span></a>
+            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><Leaf /><span>{t.brand}</span></a>
             <span className="silence-live-mark"><span /> {t.invitation}</span>
             <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
           </header>
@@ -356,7 +354,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
               <span className="silence-quote-rule" />
             </section>
             <section className="silence-sounds" aria-labelledby="silence-sounds-title">
-              <div className="silence-sounds-heading"><div><p className="eyebrow">AMBIENT SOUND</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / 4</span></div>
+              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / 4</span></div>
               <div className="silence-sound-grid">
                 <SoundButton sound="rain" icon={CloudRain} label={t.rain} />
                 <SoundButton sound="birds" icon={Bird} label={t.birds} />
@@ -367,7 +365,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
             </section>
             <p className="silence-footer-whisper">— {t.invitation}</p>
           </div>
-          <div className="silence-modal-bottom"><span>✳</span><span>PAUSA · CUIDADO · PRESENÇA</span><span>✳</span></div>
+          <div className="silence-modal-bottom"><span>✳</span><span>{t.footerLine}</span><span>✳</span></div>
         </div>
       </div>}
     </>
