@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import './flower-atlas.css'
 
 const siteUrl = 'https://rosol.vercel.app'
 const siteTitle = 'Rosas do Deserto | Coleção Botânica'
