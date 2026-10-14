@@ -90,6 +90,91 @@ const flowers: Flower[] = [
     name: { pt: 'Vermelho escultural', ru: 'Скульптурный красный', en: 'Sculptural red' },
     description: { pt: 'Linhas definidas e presença marcante', ru: 'Чёткие линии и выразительный характер', en: 'Defined lines and a bold presence' },
   },
+
+  {
+    id: 9,
+    image: 'https://images.pexels.com/photos/36972750/pexels-photo-36972750.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'bicolor', shape: 'rounded', layers: 1,
+    name: { pt: 'Rosa e branco', ru: 'Розово-белый', en: 'Pink and white' },
+    description: { pt: 'Contraste delicado em cinco pétalas', ru: 'Нежный контраст пяти лепестков', en: 'Delicate contrast across five petals' },
+  },
+  {
+    id: 10,
+    image: 'https://images.pexels.com/photos/36972751/pexels-photo-36972751.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'bicolor', shape: 'pointed', layers: 1,
+    name: { pt: 'Branco com rosa', ru: 'Белый с розовым', en: 'White with pink' },
+    description: { pt: 'Pétalas claras com nervuras rosadas', ru: 'Светлые лепестки с розовыми прожилками', en: 'Pale petals with pink veins' },
+  },
+  {
+    id: 11,
+    image: 'https://images.pexels.com/photos/14791518/pexels-photo-14791518.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'red', shape: 'rounded', layers: 1,
+    name: { pt: 'Vermelho vivo', ru: 'Ярко-красный', en: 'Vivid red' },
+    description: { pt: 'Uma cor intensa em pétalas abertas', ru: 'Насыщенный цвет раскрытых лепестков', en: 'Intense color in open petals' },
+  },
+  {
+    id: 12,
+    image: 'https://images.pexels.com/photos/7787991/pexels-photo-7787991.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'pink', shape: 'rounded', layers: 1,
+    name: { pt: 'Rosa de jardim', ru: 'Садовый розовый', en: 'Garden pink' },
+    description: { pt: 'Flor delicada em cenário natural', ru: 'Нежный цветок в естественном окружении', en: 'A delicate bloom in a natural setting' },
+  },
+  {
+    id: 13,
+    image: 'https://images.pexels.com/photos/11276595/pexels-photo-11276595.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'crimson', shape: 'pointed', layers: 1,
+    name: { pt: 'Carmesim sobre escuro', ru: 'Малиновый на тёмном', en: 'Crimson on dark' },
+    description: { pt: 'Pétalas luminosas em fundo profundo', ru: 'Яркие лепестки на тёмном фоне', en: 'Bright petals against a deep background' },
+  },
+  {
+    id: 14,
+    image: 'https://images.pexels.com/photos/26851060/pexels-photo-26851060.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'pink', shape: 'rounded', layers: 2,
+    name: { pt: 'Rosa em conjunto', ru: 'Розовые соцветия', en: 'Pink cluster' },
+    description: { pt: 'Flores reunidas entre folhas verdes', ru: 'Цветы среди зелёных листьев', en: 'Blooms gathered among green leaves' },
+  },
+  {
+    id: 15,
+    image: 'https://images.pexels.com/photos/17800760/pexels-photo-17800760.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'bicolor', shape: 'ruffled', layers: 3,
+    name: { pt: 'Branco e rosa em camadas', ru: 'Многослойный бело-розовый', en: 'Layered pink and white' },
+    description: { pt: 'Camadas cheias com bordas suaves', ru: 'Пышные слои с мягкими краями', en: 'Full layers with soft edges' },
+  },
+  {
+    id: 16,
+    image: 'https://images.pexels.com/photos/36590794/pexels-photo-36590794.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'red', shape: 'ruffled', layers: 2,
+    name: { pt: 'Vermelho ao sol', ru: 'Красный на солнце', en: 'Red in sunlight' },
+    description: { pt: 'A luz revela a textura das pétalas', ru: 'Солнечный свет подчёркивает фактуру лепестков', en: 'Sunlight reveals the petal texture' },
+  },
+  {
+    id: 17,
+    image: 'https://images.pexels.com/photos/16251764/pexels-photo-16251764.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'pink', shape: 'rounded', layers: 2,
+    name: { pt: 'Rosa coral', ru: 'Кораллово-розовый', en: 'Coral pink' },
+    description: { pt: 'Tons quentes contra um fundo suave', ru: 'Тёплые оттенки на мягком фоне', en: 'Warm shades against a soft background' },
+  },
+  {
+    id: 18,
+    image: 'https://images.pexels.com/photos/33971677/pexels-photo-33971677.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'bicolor', shape: 'rounded', layers: 2,
+    name: { pt: 'Rosa e branco em flor', ru: 'Розово-белое цветение', en: 'Pink-white bloom' },
+    description: { pt: 'Duas cores em equilíbrio natural', ru: 'Два оттенка в естественном равновесии', en: 'Two colors in natural balance' },
+  },
+  {
+    id: 19,
+    image: 'https://images.pexels.com/photos/15735802/pexels-photo-15735802.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'red', shape: 'pointed', layers: 1,
+    name: { pt: 'Vermelho profundo', ru: 'Глубокий красный', en: 'Deep red' },
+    description: { pt: 'Contornos nítidos e tom intenso', ru: 'Чёткие контуры и глубокий оттенок', en: 'Crisp contours and a deep hue' },
+  },
+  {
+    id: 20,
+    image: 'https://images.pexels.com/photos/39565740/pexels-photo-39565740.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    color: 'bicolor', shape: 'ruffled', layers: 2,
+    name: { pt: 'Rosa com branco luminoso', ru: 'Розовый с белым сиянием', en: 'Pink with luminous white' },
+    description: { pt: 'Pétalas claras com centro expressivo', ru: 'Светлые лепестки с выразительным центром', en: 'Light petals with an expressive center' },
+  },
 ]
 
 const copy = {
@@ -105,8 +190,9 @@ const copy = {
     layers: 'Camadas de pétalas',
     layerOptions: { all: 'Todas', 1: 'Simples', 2: 'Duplas', 3: 'Múltiplas' },
     compare: 'Comparar flores',
-    compareHint: 'Escolha até duas flores para observar lado a lado.',
+    compareHint: 'Toque no + de duas flores. As fotos grandes aparecerão lado a lado abaixo.',
     selected: 'selecionadas',
+    compareStep: 'Marque duas flores usando o botão + em cada cartão.',
     clear: 'Limpar seleção',
     details: 'Ver detalhes',
     empty: 'Nenhuma flor corresponde a estes filtros. Experimente outra combinação.',
@@ -128,8 +214,9 @@ const copy = {
     layers: 'Количество слоёв',
     layerOptions: { all: 'Любое', 1: 'Один', 2: 'Два', 3: 'Несколько' },
     compare: 'Сравнить цветы',
-    compareHint: 'Выберите до двух цветов, чтобы рассмотреть их рядом.',
+    compareHint: 'Нажмите + на двух карточках. Ниже появятся крупные фото рядом друг с другом.',
     selected: 'выбрано',
+    compareStep: 'Отметьте два цветка кнопкой + на каждой карточке.',
     clear: 'Сбросить выбор',
     details: 'Подробнее',
     empty: 'По этим фильтрам ничего не найдено. Попробуйте другую комбинацию.',
@@ -151,8 +238,9 @@ const copy = {
     layers: 'Petal layers',
     layerOptions: { all: 'Any number', 1: 'Single', 2: 'Double', 3: 'Multiple' },
     compare: 'Compare blooms',
-    compareHint: 'Choose up to two flowers to view side by side.',
+    compareHint: 'Press + on two cards. Their large photos will appear side by side below.',
     selected: 'selected',
+    compareStep: 'Choose two flowers using the + button on each card.',
     clear: 'Clear selection',
     details: 'View details',
     empty: 'No blooms match these filters. Try another combination.',
@@ -227,7 +315,7 @@ export default function FlowerAtlas({ locale = 'pt' }: { locale?: Locale }) {
         </div>
       </div>
 
-      <div className="atlas-results-bar"><span>{String(filteredFlowers.length).padStart(2, '0')} <span className="atlas-results-label">/ 08</span></span><button type="button" className="atlas-compare-toggle" onClick={() => setSelected(selected.length ? [] : filteredFlowers.slice(0, 2).map((flower) => flower.id))}><span>{t.compare}</span><span className="atlas-compare-count">{selected.length}/2</span></button></div>
+      <div className="atlas-results-bar"><span>{String(filteredFlowers.length).padStart(2, '0')} <span className="atlas-results-label">/ 20</span></span><button type="button" className="atlas-compare-toggle" onClick={() => setSelected(selected.length ? [] : filteredFlowers.slice(0, 2).map((flower) => flower.id))}><span>{t.compare}</span><span className="atlas-compare-count">{selected.length}/2</span></button></div>
 
       {filteredFlowers.length ? <div className="atlas-grid">{filteredFlowers.map((flower, index) => {
         const isSelected = selected.includes(flower.id)
@@ -247,8 +335,8 @@ export default function FlowerAtlas({ locale = 'pt' }: { locale?: Locale }) {
       <div className="atlas-bottom"><p>{t.footer}</p><span>{t.compareHint}</span></div>
 
       {selectedFlowers.length > 0 && <div className="atlas-compare-panel" aria-live="polite">
-        <div className="atlas-compare-panel-head"><div><span>{t.compare}</span><p>{t.compareHint}</p></div><button type="button" onClick={() => setSelected([])} aria-label={t.clear}><X size={17} /></button></div>
-        <div className="atlas-compare-items">{selectedFlowers.map((flower) => <div className="atlas-compare-item" key={flower.id}><img src={flower.image} alt={flower.name[locale]} /><div><strong>{flower.name[locale]}</strong><span>{t.colors[flower.color]} · {t.shapes[flower.shape]} · {t.layerOptions[flower.layers]}</span></div><button type="button" onClick={() => toggleSelected(flower.id)} aria-label={t.clear}><X size={14} /></button></div>)}</div>
+        <div className="atlas-compare-panel-head"><div><span>{t.compare}</span><p>{selectedFlowers.length < 2 ? t.compareStep : t.compareHint}</p></div><button type="button" onClick={() => setSelected([])} aria-label={t.clear}><X size={17} /></button></div>
+        <div className="atlas-compare-items">{selectedFlowers.map((flower, index) => <article className="atlas-compare-item" key={flower.id}><div className="atlas-compare-photo"><img src={flower.image} alt={flower.name[locale]} /><span>0{index + 1}</span><button type="button" onClick={() => toggleSelected(flower.id)} aria-label={t.clear}><X size={16} /></button></div><div className="atlas-compare-item-copy"><strong>{flower.name[locale]}</strong><span>{t.colors[flower.color]} · {t.shapes[flower.shape]} · {t.layerOptions[flower.layers]}</span><p>{flower.description[locale]}</p></div></article>)}</div>
       </div>}
 
       {detailFlower && <div className="atlas-modal-backdrop" role="presentation" onClick={() => setDetailId(null)}><div className="atlas-modal" role="dialog" aria-modal="true" aria-label={detailFlower.name[locale]} onClick={(event) => event.stopPropagation()}><button type="button" className="atlas-modal-close" onClick={() => setDetailId(null)} aria-label={t.close}><X /></button><img src={detailFlower.image} alt={detailFlower.name[locale]} /><div className="atlas-modal-copy"><p className="atlas-eyebrow"><Flower2 size={14} /> {t.details}</p><h3>{detailFlower.name[locale]}</h3><p>{detailFlower.description[locale]}</p><dl><div><dt>{t.color}</dt><dd>{t.colors[detailFlower.color]}</dd></div><div><dt>{t.shapeLabel}</dt><dd>{t.shapes[detailFlower.shape]}</dd></div><div><dt>{t.layersLabel}</dt><dd>{t.layerOptions[detailFlower.layers]}</dd></div></dl><button type="button" className="atlas-modal-compare" onClick={() => { toggleSelected(detailFlower.id); setDetailId(null) }}>{t.compare} +</button></div></div></div>}
