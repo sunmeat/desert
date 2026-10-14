@@ -195,7 +195,8 @@ const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: st
   springGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2020/03/Spring-forest-ambience.mp3', credit:'Spring Forest Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/spring-forest-ambience/' },
   rainforest: { src:'https://orangefreesounds.com/wp-content/uploads/2016/04/Rainforest-sounds.mp3', credit:'Rainforest Sounds · Orange Free Sounds · CC BY 4.0', creditUrl:'https://orangefreesounds.com/rainforest-sounds/' },
   forestDay: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' },
-  garden: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' }
+  garden: { src:'https://orangefreesounds.com/wp-content/uploads/2019/04/Forest-daytime-ambience.mp3', credit:'Forest Daytime Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/forest-daytime-ambience/' },
+  summerGarden: { src:'https://orangefreesounds.com/wp-content/uploads/2021/08/Bird-sounds-in-the-summer-garden.mp3', credit:'Bird Sounds in the Summer Garden · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/bird-sounds-in-the-summer-garden/' }
 }
 
 const copy = {
