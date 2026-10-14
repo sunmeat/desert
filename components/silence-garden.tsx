@@ -283,6 +283,19 @@ export default function SilenceGarden({ locale = 'pt', standalone = false }: { l
   }, [])
 
   const enterGarden = () => {
+    if (!standalone) {
+      const music = document.querySelector('audio')
+      if (music) {
+        sessionStorage.setItem('gardenMusicResume', JSON.stringify({
+          src: music.src,
+          currentTime: music.currentTime,
+          wasPlaying: !music.paused,
+        }))
+        if (!music.paused) music.pause()
+      }
+      window.location.href = '/zen_garden'
+      return
+    }
     const shuffled = [...soundKeys]
     for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]] }
     setSoundOrder(shuffled); setQuoteIndex(Math.floor(Math.random() * 50)); setIsOpen(true)
