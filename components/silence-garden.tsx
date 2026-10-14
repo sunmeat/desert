@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Bird, CloudRain, Leaf, RefreshCw, Wind, X, Flame, TreeDeciduous, Droplets, Waves, Music, Coffee, Drum, CircleDot, Flower2, Sprout, Bug, CloudLightning, Trees } from 'lucide-react'
 
 type Locale = 'pt' | 'ru' | 'en'
-type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'birds' | 'wind' | 'cicadas' | 'fire' | 'wood' | 'irrigation' | 'chimes' | 'stream' | 'thunder' | 'bees' | 'tribal' | 'bowls' | 'crickets' | 'bumblebees' | 'frogs' | 'dawnBirds' | 'leafDrops' | 'meadow' | 'wetGarden' | 'roseStems' | 'forest' | 'jungle' | 'ocean' | 'guitarCafe' | 'rioCafe' | 'carnival' | 'atabaque' | 'iguazu' | 'brazilMorning'
+type SoundKey = 'rain' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'birds' | 'stream' | 'ocean' | 'chimes' | 'cicadas' | 'forest' | 'evening' | 'thunder' | 'meadow' | 'morning' | 'birds' | 'wind' | 'cicadas' | 'fire' | 'wood' | 'irrigation' | 'chimes' | 'stream' | 'thunder' | 'bees' | 'tribal' | 'bowls' | 'crickets' | 'bumblebees' | 'frogs' | 'dawnBirds' | 'leafDrops' | 'meadow' | 'wetGarden' | 'roseStems' | 'forest' | 'jungle' | 'ocean' | 'guitarCafe' | 'rioCafe' | 'carnival' | 'atabaque' | 'iguazu' | 'brazilMorning'
 
 const quotes: Record<Locale, string[]> = {
   ru: [
@@ -172,9 +172,7 @@ const soundLabels: Record<Locale, Record<SoundKey, string>> = {
   en: { rain:'Gentle rain', birds:'Forest birdsong', stream:'Forest stream', ocean:'Ocean waves', chimes:'Wind chimes', cicadas:'Cicadas', forest:'Night forest and stream', evening:'Evening crickets and birds', thunder:'Rain and distant thunder', meadow:'Evening meadow', morning:'Morning forest stream' }
 }
 const soundKeys: SoundKey[] = ['rain','birds','stream','ocean','chimes','cicadas','forest','evening','thunder','meadow','morning']
-const soundIcons: Record<SoundKey, typeof CloudRain> = {
-  rain:CloudRain, birds:Bird, stream:Waves, ocean:Waves, chimes:Music, cicadas:Bug, forest:Trees, evening:Bug, thunder:CloudLightning, meadow:Sprout, morning:Bird
-}
+const soundIcons: Record<SoundKey, typeof CloudRain> = { rain:CloudRain, birds:Bird, stream:Waves, ocean:Waves, chimes:Music, cicadas:Bug, forest:Trees, evening:Bug, thunder:CloudLightning, meadow:Sprout, morning:Bird }
 const soundTracks: Record<SoundKey, { src: string; credit: string; creditUrl: string }> = {
   rain: { src:'https://orangefreesounds.com/wp-content/uploads/2026/05/Loopable-heavy-rain-ambience-sound-effect.mp3', credit:'Loopable Heavy Rain Ambience · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/loopable-heavy-rain-ambience-sound-effect/' },
   birds: { src:'https://orangefreesounds.com/wp-content/uploads/2026/02/Relaxing-forest-sounds-with-birds.mp3', credit:'Relaxing Forest Sounds With Birds · Orange Free Sounds · CC BY-NC 4.0', creditUrl:'https://orangefreesounds.com/relaxing-forest-sounds-with-birds/' },
@@ -219,6 +217,310 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
         audio.pause()
         audio.currentTime = 0
       }
+    })
+    audioRef.current = {}
+    setActiveSounds([])
+  }, [])
+
+  const startSound = useCallback(async (key: SoundKey) => {
+    const audio = new Audio(soundTracks[key].src)
+    audio.loop = true
+    audio.preload = 'none'
+    audio.volume = 0.42
+    audioRef.current[key] = audio
+    try {
+      await audio.play()
+      setActiveSounds((current) => current.includes(key) ? current : [...current, key])
+    } catch {
+      delete audioRef.current[key]
+    }
+  }, [])
+
+  const toggleSound = useCallback((key: SoundKey) => {
+    if (audioRef.current[key]) stopSound(key)
+    else void startSound(key)
+  }, [startSound, stopSound])
+
+  const closeGarden = useCallback(() => {
+    stopAllSounds()
+    setIsOpen(false)
+  }, [stopAllSounds])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeGarden()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [isOpen, closeGarden])
+
+  useEffect(() => () => {
+    Object.values(audioRef.current).forEach((audio) => audio?.pause())
+    audioRef.current = {}
+  }, [])
+
+  const enterGarden = () => {
+    const shuffled = [...soundKeys]
+    for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]] }
+    setSoundOrder(shuffled); setQuoteIndex(Math.floor(Math.random() * 50)); setIsOpen(true)
+  }
+
+  const nextQuote = () => setQuoteIndex((current) => {
+    const offset = 1 + Math.floor(Math.random() * 49)
+    return (current + offset) % quotes[locale].length
+  })
+
+
+
+  return (
+    <>
+      <section className="silence-invitation section-pad" aria-labelledby="silence-invitation-title">
+        <div className="silence-invitation-inner">
+          <span className="silence-orbit" aria-hidden="true"><Leaf /></span>
+          <p className="eyebrow">{t.kicker}</p>
+          <h2 id="silence-invitation-title">{t.title}</h2>
+          <p>{t.intro}</p>
+          <button type="button" className="silence-enter-button" onClick={enterGarden}>{t.open}<span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+      {isOpen && <div className="silence-modal" role="dialog" aria-modal="true" aria-labelledby="silence-title">
+        <div className="silence-modal-backdrop" aria-hidden="true" />
+        <div className="silence-modal-content">
+          <header className="silence-modal-header">
+            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><Leaf /><span>{t.brand}</span></a>
+            <span className="silence-live-mark"><span /> {t.invitation}</span>
+            <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
+          </header>
+          <div className="silence-main">
+            <div className="silence-title-block"><p className="eyebrow"><span>✳</span> 07 · {t.kicker}</p><h2 id="silence-title">{t.title.split(' ').slice(0, -1).join(' ')} <em>{t.title.split(' ').slice(-1)}</em></h2><p>{t.subtitle}</p></div>
+            <section className="silence-quote-panel" aria-live="polite">
+              <span className="silence-quote-mark">“</span>
+              <p className="silence-quote-label">{t.day} · {String(quoteIndex + 1).padStart(2, '0')} / 50</p>
+              <blockquote key={quoteIndex}>{quotes[locale][quoteIndex]}</blockquote>
+              <button className="silence-next-quote" type="button" onClick={nextQuote}><RefreshCw /> {t.next}</button>
+              <span className="silence-quote-rule" />
+            </section>
+            <section className="silence-sounds" aria-labelledby="silence-sounds-title">
+              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / {soundKeys.length}</span></div>
+              <div className="silence-sound-grid">
+                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; const active = activeSounds.includes(sound); return <button key={sound} className={'silence-sound-button ' + (active ? 'is-active' : '')} type="button" aria-pressed={active} onClick={() => toggleSound(sound)}><span className="silence-sound-icon"><Icon /></span><span>{soundLabels[locale][sound]}</span><span className="silence-sound-state">{active ? '●' : '+'}</span></button> })}
+              </div>
+              <p className="silence-sound-hint">{t.hint}</p>
+            </section>
+            <p className="silence-footer-whisper">— {t.invitation}</p>
+          </div>
+          <div className="silence-modal-bottom"><span>✳</span><span>{t.footerLine}</span><span>✳</span></div>
+          <nav className="silence-audio-credits" aria-label="Audio credits">
+            {Object.entries(soundTracks).map(([key, track]) => <a key={key} href={track.creditUrl} target="_blank" rel="noreferrer">{track.credit}</a>)}
+          </nav>
+          <nav className="silence-audio-credits" aria-label="Audio credits">
+            {Object.entries(soundTracks).map(([key, track]) => <a key={key} href={track.creditUrl} target="_blank" rel="noreferrer">{track.credit}</a>)}
+          </nav>
+        </div>
+      </div>}
+    </>
+  )
+}export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * 50))
+  const [activeSounds, setActiveSounds] = useState<SoundKey[]>([])
+  const [soundOrder, setSoundOrder] = useState<SoundKey[]>(soundKeys)
+  const audioRef = useRef<Partial<Record<SoundKey, HTMLAudioElement>>>({})
+  const t = copy[locale]
+
+  const stopSound = useCallback((key: SoundKey) => {
+    const audio = audioRef.current[key]
+    if (audio) {
+      audio.pause()
+      audio.currentTime = 0
+      delete audioRef.current[key]
+    }
+    setActiveSounds((current) => current.filter((sound) => sound !== key))
+  }, [])
+
+  const stopAllSounds = useCallback(() => {
+    Object.values(audioRef.current).forEach((audio) => {
+      if (audio) { audio.pause(); audio.currentTime = 0 }
+    })
+    audioRef.current = {}
+    setActiveSounds([])
+  }, [])
+
+  const startSound = useCallback(async (key: SoundKey) => {
+    const audio = new Audio(soundTracks[key].src)
+    audio.loop = true
+    audio.preload = 'none'
+    audio.volume = 0.42
+    audioRef.current[key] = audio
+    try {
+      await audio.play()
+      setActiveSounds((current) => current.includes(key) ? current : [...current, key])
+    } catch {
+      delete audioRef.current[key]
+    }
+  }, [])
+
+  const toggleSound = useCallback((key: SoundKey) => {
+    if (audioRef.current[key]) stopSound(key)
+    else void startSound(key)
+  }, [startSound, stopSound])
+
+  const closeGarden = useCallback(() => {
+    stopAllSounds()
+    setIsOpen(false)
+  }, [stopAllSounds])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeGarden()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [isOpen, closeGarden])
+
+  useEffect(() => () => {
+    Object.values(audioRef.current).forEach((audio) => audio?.pause())
+    audioRef.current = {}
+  }, [])
+
+  const enterGarden = () => {
+    const shuffled = [...soundKeys]
+    for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]] }
+    setSoundOrder(shuffled); setQuoteIndex(Math.floor(Math.random() * 50)); setIsOpen(true)
+  }
+
+  const nextQuote = () => setQuoteIndex((current) => {
+    const offset = 1 + Math.floor(Math.random() * 49)
+    return (current + offset) % quotes[locale].length
+  })
+
+
+
+  return (
+    <>
+      <section className="silence-invitation section-pad" aria-labelledby="silence-invitation-title">
+        <div className="silence-invitation-inner">
+          <span className="silence-orbit" aria-hidden="true"><Leaf /></span>
+          <p className="eyebrow">{t.kicker}</p>
+          <h2 id="silence-invitation-title">{t.title}</h2>
+          <p>{t.intro}</p>
+          <button type="button" className="silence-enter-button" onClick={enterGarden}>{t.open}<span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+      {isOpen && <div className="silence-modal" role="dialog" aria-modal="true" aria-labelledby="silence-title">
+        <div className="silence-modal-backdrop" aria-hidden="true" />
+        <div className="silence-modal-content">
+          <header className="silence-modal-header">
+            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><Leaf /><span>{t.brand}</span></a>
+            <span className="silence-live-mark"><span /> {t.invitation}</span>
+            <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
+          </header>
+          <div className="silence-main">
+            <div className="silence-title-block"><p className="eyebrow"><span>✳</span> 07 · {t.kicker}</p><h2 id="silence-title">{t.title.split(' ').slice(0, -1).join(' ')} <em>{t.title.split(' ').slice(-1)}</em></h2><p>{t.subtitle}</p></div>
+            <section className="silence-quote-panel" aria-live="polite">
+              <span className="silence-quote-mark">“</span>
+              <p className="silence-quote-label">{t.day} · {String(quoteIndex + 1).padStart(2, '0')} / 50</p>
+              <blockquote key={quoteIndex}>{quotes[locale][quoteIndex]}</blockquote>
+              <button className="silence-next-quote" type="button" onClick={nextQuote}><RefreshCw /> {t.next}</button>
+              <span className="silence-quote-rule" />
+            </section>
+            <section className="silence-sounds" aria-labelledby="silence-sounds-title">
+              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / {soundKeys.length}</span></div>
+              <div className="silence-sound-grid">
+                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; const active = activeSounds.includes(sound); return <button key={sound} className={'silence-sound-button ' + (active ? 'is-active' : '')} type="button" aria-pressed={active} onClick={() => toggleSound(sound)}><span className="silence-sound-icon"><Icon /></span><span>{soundLabels[locale][sound]}</span><span className="silence-sound-state">{active ? '●' : '+'}</span></button> })}
+              </div>
+              <p className="silence-sound-hint">{t.hint}</p>
+            </section>
+            <p className="silence-footer-whisper">— {t.invitation}</p>
+          </div>
+          <div className="silence-modal-bottom"><span>✳</span><span>{t.footerLine}</span><span>✳</span></div>
+          <nav className="silence-audio-credits" aria-label="Audio credits">
+            {Object.entries(soundTracks).map(([key, track]) => <a key={key} href={track.creditUrl} target="_blank" rel="noreferrer">{track.credit}</a>)}
+          </nav>
+        </div>
+      </div>}
+    </>
+  )
+}
+
+  return (
+    <>
+      <section className="silence-invitation section-pad" aria-labelledby="silence-invitation-title">
+        <div className="silence-invitation-inner">
+          <span className="silence-orbit" aria-hidden="true"><Leaf /></span>
+          <p className="eyebrow">{t.kicker}</p>
+          <h2 id="silence-invitation-title">{t.title}</h2>
+          <p>{t.intro}</p>
+          <button type="button" className="silence-enter-button" onClick={enterGarden}>{t.open}<span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+      {isOpen && <div className="silence-modal" role="dialog" aria-modal="true" aria-labelledby="silence-title">
+        <div className="silence-modal-backdrop" aria-hidden="true" />
+        <div className="silence-modal-content">
+          <header className="silence-modal-header">
+            <a className="silence-modal-brand" href="#inicio" onClick={(event) => event.preventDefault()}><Leaf /><span>{t.brand}</span></a>
+            <span className="silence-live-mark"><span /> {t.invitation}</span>
+            <button className="silence-exit" type="button" onClick={closeGarden}><X /><span>{t.exit}</span></button>
+          </header>
+          <div className="silence-main">
+            <div className="silence-title-block"><p className="eyebrow"><span>✳</span> 07 · {t.kicker}</p><h2 id="silence-title">{t.title.split(' ').slice(0, -1).join(' ')} <em>{t.title.split(' ').slice(-1)}</em></h2><p>{t.subtitle}</p></div>
+            <section className="silence-quote-panel" aria-live="polite">
+              <span className="silence-quote-mark">“</span>
+              <p className="silence-quote-label">{t.day} · {String(quoteIndex + 1).padStart(2, '0')} / 50</p>
+              <blockquote key={quoteIndex}>{quotes[locale][quoteIndex]}</blockquote>
+              <button className="silence-next-quote" type="button" onClick={nextQuote}><RefreshCw /> {t.next}</button>
+              <span className="silence-quote-rule" />
+            </section>
+            <section className="silence-sounds" aria-labelledby="silence-sounds-title">
+              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / {soundKeys.length}</span></div>
+              <div className="silence-sound-grid">
+                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; const active = activeSounds.includes(sound); return <button key={sound} className={'silence-sound-button ' + (active ? 'is-active' : '')} type="button" aria-pressed={active} onClick={() => toggleSound(sound)}><span className="silence-sound-icon"><Icon /></span><span>{soundLabels[locale][sound]}</span><span className="silence-sound-state">{active ? '●' : '+'}</span></button> })}
+              </div>
+              <p className="silence-sound-hint">{t.hint}</p>
+            </section>
+            <p className="silence-footer-whisper">— {t.invitation}</p>
+          </div>
+          <div className="silence-modal-bottom"><span>✳</span><span>{t.footerLine}</span><span>✳</span></div>
+          <nav className="silence-audio-credits" aria-label="Audio credits">
+            {Object.entries(soundTracks).map(([key, track]) => <a key={key} href={track.creditUrl} target="_blank" rel="noreferrer">{track.credit}</a>)}
+          </nav>
+        </div>
+      </div>}
+    </>
+  )
+}export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * 50))
+  const [activeSounds, setActiveSounds] = useState<SoundKey[]>([])
+  const [soundOrder, setSoundOrder] = useState<SoundKey[]>(soundKeys)
+  const audioRef = useRef<Partial<Record<SoundKey, HTMLAudioElement>>>({})
+  const t = copy[locale]
+
+  const stopSound = useCallback((key: SoundKey) => {
+    const audio = audioRef.current[key]
+    if (audio) {
+      audio.pause()
+      audio.currentTime = 0
+      delete audioRef.current[key]
+    }
+    setActiveSounds((current) => current.filter((sound) => sound !== key))
+  }, [])
+
+  const stopAllSounds = useCallback(() => {
+    Object.values(audioRef.current).forEach((audio) => {
+      if (audio) { audio.pause(); audio.currentTime = 0 }
     })
     audioRef.current = {}
     setActiveSounds([])
