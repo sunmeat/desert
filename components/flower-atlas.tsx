@@ -163,7 +163,7 @@ const flowers: Flower[] = [
   },
   {
     id: 19,
-    image: 'https://images.pexels.com/photos/15735802/pexels-photo-15735802.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    image: 'https://images.pexels.com/photos/31230149/pexels-photo-31230149.jpeg?auto=compress&cs=tinysrgb&w=1000',
     color: 'red', shape: 'pointed', layers: 1,
     name: { pt: 'Vermelho profundo', ru: 'Глубокий красный', en: 'Deep red' },
     description: { pt: 'Contornos nítidos e tom intenso', ru: 'Чёткие контуры и глубокий оттенок', en: 'Crisp contours and a deep hue' },
