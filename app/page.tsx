@@ -23,6 +23,7 @@ const translations = {
     languageName: 'Русский',
     brand: <>Розы<br /><i>пустыни</i></>,
     nav: ['Коллекция', 'О Натаниэле', 'Контакты'],
+    gardenNav: 'Сад мыслей',
     heroEyebrow: 'Личная коллекция · Бразилия',
     heroTitle: <>Выращены<br /><em>под солнцем.</em></>,
     heroSubtitle: 'Коллекция роз пустыни, выращенных в Бразилии с терпением, заботой и любовью.',
@@ -84,6 +85,7 @@ const translations = {
     languageName: 'Português',
     brand: <>Rosas<br /><i>do deserto</i></>,
     nav: ['Coleção', 'Sobre Natanael', 'Contato'],
+    gardenNav: 'Jardim de pensamentos',
     heroEyebrow: 'Coleção pessoal · Brasil',
     heroTitle: <>Cultivadas<br /><em>sob o sol.</em></>,
     heroSubtitle: 'Rosas do deserto cultivadas no Brasil com paciência, cuidado e carinho.',
@@ -145,6 +147,7 @@ const translations = {
     languageName: 'English',
     brand: <>Desert<br /><i>roses</i></>,
     nav: ['Collection', 'About Natanael', 'Contact'],
+    gardenNav: 'Garden of thoughts',
     heroEyebrow: 'Personal collection · Brazil',
     heroTitle: <>Grown<br /><em>under the sun.</em></>,
     heroSubtitle: 'Desert roses grown in Brazil with patience, care, and love.',
@@ -264,6 +267,22 @@ export default function Page() {
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale
   }, [locale])
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem('gardenMusicResume')
+    if (!saved || !audioRef.current) return
+    sessionStorage.removeItem('gardenMusicResume')
+    try {
+      const state = JSON.parse(saved) as { src?: string; currentTime?: number; wasPlaying?: boolean }
+      const audio = audioRef.current
+      if (!state.src || !state.wasPlaying || !audio) return
+      audio.src = state.src
+      audio.currentTime = Math.max(0, state.currentTime || 0)
+      void audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
+    } catch {
+      sessionStorage.removeItem('gardenMusicResume')
+    }
+  }, [])
+
   const tracks = [
     '/audio/21681844.mp3',
     '/audio/24456733.mp3',
@@ -317,7 +336,7 @@ export default function Page() {
       <header className="site-header">
         <a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true">🌺</span><span>{t.brand}</span></a>
         <nav className="desktop-nav" aria-label={t.menu}>
-          <a href="#colecao">{t.nav[0]}</a><a href="#atlas-floracao">{locale === 'pt' ? 'Atlas da floração' : locale === 'ru' ? 'Атлас цветения' : 'Bloom atlas'}</a><a href="#calendario-cuidados">{locale === 'pt' ? 'Cuidados' : locale === 'ru' ? 'Уход' : 'Care calendar'}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a>
+          <a href="#colecao">{t.nav[0]}</a><a href="#atlas-floracao">{locale === 'pt' ? 'Atlas da floração' : locale === 'ru' ? 'Атлас цветения' : 'Bloom atlas'}</a><a href="#calendario-cuidados">{locale === 'pt' ? 'Cuidados' : locale === 'ru' ? 'Уход' : 'Care calendar'}</a><a href="#natanael">{t.nav[1]}</a><a href="#contato">{t.nav[2]}</a><a href="/zen_garden" onClick={() => { const audio = audioRef.current; if (audio && !audio.paused) { sessionStorage.setItem("gardenMusicResume", JSON.stringify({ src: audio.src, currentTime: audio.currentTime, wasPlaying: true })); audio.pause() } else { sessionStorage.setItem("gardenMusicResume", JSON.stringify({ src: audio?.src || "", currentTime: audio?.currentTime || 0, wasPlaying: false })) } }}>{t.gardenNav}</a>
         </nav>
         <div className="header-tools">
           <button className="audio-button header-audio-button" onClick={toggleAudio} aria-label={isPlaying ? t.pause : t.play} title={isPlaying ? t.pause : t.play} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} <span>{isPlaying ? t.pause : t.play}</span></button>
