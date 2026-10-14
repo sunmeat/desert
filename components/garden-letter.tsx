@@ -7,7 +7,7 @@ type Locale = 'pt' | 'ru' | 'en'
 
 const copy = {
   pt: {
-    kicker: 'Obrigado pela visita!',
+    kicker: <>Obrigado pela visita! <span className="garden-letter-special">Especialmente para você</span></>,
     title: <>Uma carta<br /><em>do jardim.</em></>,
     note: 'Que esta pequena pausa lembre: tudo o que vive merece espaço, tempo e cuidado.',
     button: 'Mais uma carta',
@@ -15,7 +15,7 @@ const copy = {
     photoLabel: 'Um instante de beleza',
   },
   ru: {
-    kicker: 'Спасибо за визит!',
+    kicker: <>Спасибо за визит! <span className="garden-letter-special">Специально для вас</span></>,
     title: <>Письмо<br /><em>из сада.</em></>,
     note: 'Пусть эта маленькая пауза напомнит: всё живое заслуживает пространства, времени и бережного отношения.',
     button: 'Ещё одно письмо',
@@ -23,7 +23,7 @@ const copy = {
     photoLabel: 'Мгновение красоты',
   },
   en: {
-    kicker: 'Thank you for visiting!',
+    kicker: <>Thank you for visiting! <span className="garden-letter-special">Especially for you</span></>,
     title: <>A letter<br /><em>from the garden.</em></>,
     note: 'May this small pause remind us that every living thing deserves room, time, and gentle care.',
     button: 'Another letter',
