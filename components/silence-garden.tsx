@@ -1,10 +1,10 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Bird, CloudRain, Leaf, RefreshCw, Wind, X } from 'lucide-react'
+import { Bird, CloudRain, Leaf, RefreshCw, Wind, X, Flame, TreeDeciduous, Droplets, Waves, Music, Coffee, Drum, CircleDot, Flower2, Sprout, Bug, CloudLightning, Trees } from 'lucide-react'
 
 type Locale = 'pt' | 'ru' | 'en'
-type SoundKey = 'rain' | 'birds' | 'wind' | 'garden'
+type SoundKey = 'rain' | 'birds' | 'wind' | 'cicadas' | 'fire' | 'wood' | 'irrigation' | 'chimes' | 'stream' | 'thunder' | 'bees' | 'tribal' | 'bowls' | 'crickets' | 'bumblebees' | 'frogs' | 'dawnBirds' | 'leafDrops' | 'meadow' | 'wetGarden' | 'roseStems' | 'forest' | 'jungle' | 'ocean' | 'guitarCafe' | 'rioCafe' | 'carnival' | 'atabaque' | 'iguazu' | 'brazilMorning'
 
 const quotes: Record<Locale, string[]> = {
   ru: [
@@ -165,10 +165,21 @@ const quotes: Record<Locale, string[]> = {
   ]
 }
 
+
+const soundLabels: Record<Locale, Record<SoundKey, string>> = {
+  ru: { rain:'Дождь', birds:'Пение птиц', wind:'Ветер', cicadas:'Цикады', fire:'Потрескивание костра', wood:'Скрип дерева', irrigation:'Капельный полив', chimes:'Колокольчики ветра', stream:'Маленький ручей', thunder:'Глухой гром в пустыне', bees:'Ленивые жужжащие пчёлы', tribal:'Этнический бубен-эмбиент', bowls:'Поющие чаши', crickets:'Вечерние сверчки', bumblebees:'Жужжание шмелей', frogs:'Лягушки у пруда', dawnBirds:'Утренний птичий гам', leafDrops:'Капли на листьях', meadow:'Луговые травы на ветру', wetGarden:'Влажная земля и сад', roseStems:'Шуршание стеблей роз', forest:'Глубокий лесной эмбиент', jungle:'Птицы джунглей', ocean:'Атлантический океан и прибой', guitarCafe:'Уличные музыканты с гитарой', rioCafe:'Уличное кафе в Рио', carnival:'Далёкий бразильский карнавал', atabaque:'Барабаны атабаке', iguazu:'Шум водопада Игуасу', brazilMorning:'Раннее бразильское утро' },
+  pt: { rain:'Chuva', birds:'Canto dos pássaros', wind:'Vento', cicadas:'Cigarras', fire:'Estalos da fogueira', wood:'Madeira rangendo', irrigation:'Irrigação por gotejamento', chimes:'Sinos de vento', stream:'Pequeno riacho', thunder:'Trovão distante no deserto', bees:'Abelhas zumbindo devagar', tribal:'Tambor étnico ambiente', bowls:'Tigelas cantantes', crickets:'Grilos ao entardecer', bumblebees:'Zumbido dos mamangavas', frogs:'Rãs junto ao lago', dawnBirds:'Coro de pássaros ao amanhecer', leafDrops:'Gotas nas folhas', meadow:'Ervas do campo ao vento', wetGarden:'Terra úmida e jardim', roseStems:'Folhas e caules de rosas', forest:'Ambiente de floresta profunda', jungle:'Pássaros exóticos da selva', ocean:'Atlântico e ondas na praia', guitarCafe:'Músicos de rua com violão', rioCafe:'Café de rua no Rio', carnival:'Carnaval brasileiro ao longe', atabaque:'Ritmo de atabaque', iguazu:'Cataratas do Iguaçu', brazilMorning:'Amanhecer brasileiro' },
+  en: { rain:'Rain', birds:'Birdsong', wind:'Wind', cicadas:'Cicadas', fire:'Crackling campfire', wood:'Creaking wood', irrigation:'Drip irrigation', chimes:'Wind chimes', stream:'Little babbling stream', thunder:'Distant desert thunder', bees:'Lazy buzzing bees', tribal:'Tribal hand-drum ambience', bowls:'Singing bowls', crickets:'Evening crickets', bumblebees:'Bumblebee hum', frogs:'Frogs by the pond', dawnBirds:'Morning birdsong', leafDrops:'Drops on leaves', meadow:'Meadow grasses in the wind', wetGarden:'Wet soil and garden', roseStems:'Rustling rose stems', forest:'Deep forest ambience', jungle:'Exotic jungle birds', ocean:'Atlantic surf', guitarCafe:'Street guitar musicians', rioCafe:'A quiet Rio street café', carnival:'Distant Brazilian carnival', atabaque:'Atabaque drum rhythm', iguazu:'Iguazu Falls', brazilMorning:'Early Brazilian morning' }
+}
+const soundKeys: SoundKey[] = ['rain','birds','wind','cicadas','fire','wood','irrigation','chimes','stream','thunder','bees','tribal','bowls','crickets','bumblebees','frogs','dawnBirds','leafDrops','meadow','wetGarden','roseStems','forest','jungle','ocean','guitarCafe','rioCafe','carnival','atabaque','iguazu','brazilMorning']
+const soundIcons: Record<SoundKey, typeof CloudRain> = {
+  rain:CloudRain, birds:Bird, wind:Wind, cicadas:Bug, fire:Flame, wood:TreeDeciduous, irrigation:Droplets, chimes:Music, stream:Waves, thunder:CloudLightning, bees:Bug, tribal:Drum, bowls:CircleDot, crickets:Bug, bumblebees:Bug, frogs:Droplets, dawnBirds:Bird, leafDrops:Droplets, meadow:Sprout, wetGarden:Flower2, roseStems:Flower2, forest:Trees, jungle:Bird, ocean:Waves, guitarCafe:Music, rioCafe:Coffee, carnival:Music, atabaque:Drum, iguazu:Waves, brazilMorning:Sprout
+}
+
 const copy = {
-  ru: { soundEyebrow: 'ЗВУКИ ПРИРОДЫ', footerLine: 'ПАУЗА · ЗАБОТА · ПРИСУТСТВИЕ', brand: 'РОЗЫ ПУСТЫНИ', title: 'Сад тишины', subtitle: 'Небольшое место, чтобы замедлиться.', invitation: 'Иногда достаточно просто побыть здесь.', day: 'Размышление дня', next: 'Другая мысль', sounds: 'Звуки сада', rain: 'Дождь', birds: 'Пение птиц', wind: 'Ветер', garden: 'Живой сад', exit: 'Выйти из сада', hint: 'Звуки можно сочетать. Включайте только то, что хочется услышать.', open: 'Войти в сад тишины', kicker: 'Место для паузы', intro: 'О терпении, заботе и времени' },
-  pt: { soundEyebrow: 'SONS DA NATUREZA', footerLine: 'PAUSA · CUIDADO · PRESENÇA', brand: 'ROSAS DO DESERTO', title: 'Jardim do silêncio', subtitle: 'Um pequeno lugar para desacelerar.', invitation: 'Às vezes, basta simplesmente estar aqui.', day: 'Reflexão do dia', next: 'Outra reflexão', sounds: 'Sons do jardim', rain: 'Chuva', birds: 'Pássaros', wind: 'Vento', garden: 'Vida no jardim', exit: 'Sair do jardim', hint: 'Você pode combinar os sons. Ative apenas o que deseja ouvir.', open: 'Entrar no jardim do silêncio', kicker: 'Um lugar para pausar', intro: 'Sobre paciência, cuidado e tempo' },
-  en: { soundEyebrow: 'SOUNDS OF NATURE', footerLine: 'PAUSE · CARE · PRESENCE', brand: 'DESERT ROSES', title: 'Garden of quiet', subtitle: 'A small place to slow down.', invitation: 'Sometimes it is enough to simply be here.', day: 'Reflection of the day', next: 'Another reflection', sounds: 'Garden sounds', rain: 'Rain', birds: 'Birdsong', wind: 'Wind', garden: 'Living garden', exit: 'Leave the garden', hint: 'Sounds can be combined. Turn on only what you feel like hearing.', open: 'Enter the garden of quiet', kicker: 'A place to pause', intro: 'On patience, care, and time' }
+  ru: { soundEyebrow: 'ЗВУКИ ПРИРОДЫ', footerLine: 'ПАУЗА · ЗАБОТА · ПРИСУТСТВИЕ', brand: 'РОЗЫ ПУСТЫНИ', title: 'Сад мыслей', subtitle: 'Небольшое место, чтобы замедлиться.', invitation: 'Иногда достаточно просто побыть здесь.', day: 'Размышление дня', next: 'Другая мысль', sounds: 'Звуковой ландшафт', rain: 'Дождь', birds: 'Пение птиц', wind: 'Ветер', exit: 'Выйти из сада', hint: 'Звуки можно сочетать. Включайте только то, что хочется услышать.', open: 'Войти в сад мыслей', kicker: 'Место для паузы', intro: 'О терпении, заботе и времени' },
+  pt: { soundEyebrow: 'SONS DA NATUREZA', footerLine: 'PAUSA · CUIDADO · PRESENÇA', brand: 'ROSAS DO DESERTO', title: 'Jardim de pensamentos', subtitle: 'Um pequeno lugar para desacelerar.', invitation: 'Às vezes, basta simplesmente estar aqui.', day: 'Reflexão do dia', next: 'Outra reflexão', sounds: 'Paisagem sonora', rain: 'Chuva', birds: 'Pássaros', wind: 'Vento', exit: 'Sair do jardim', hint: 'Você pode combinar os sons. Ative apenas o que deseja ouvir.', open: 'Entrar no jardim de pensamentos', kicker: 'Um lugar para pausar', intro: 'Sobre paciência, cuidado e tempo' },
+  en: { soundEyebrow: 'SOUNDS OF NATURE', footerLine: 'PAUSE · CARE · PRESENCE', brand: 'DESERT ROSES', title: 'Garden of thoughts', subtitle: 'A small place to slow down.', invitation: 'Sometimes it is enough to simply be here.', day: 'Reflection of the day', next: 'Another reflection', sounds: 'Soundscape', rain: 'Rain', birds: 'Birdsong', wind: 'Wind', exit: 'Leave the garden', hint: 'Sounds can be combined. Turn on only what you feel like hearing.', open: 'Enter the garden of thoughts', kicker: 'A place to pause', intro: 'On patience, care, and time' }
 }
 
 type AudioContextWindow = Window & { webkitAudioContext?: typeof AudioContext }
@@ -177,6 +188,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
   const [isOpen, setIsOpen] = useState(false)
   const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * 50))
   const [activeSounds, setActiveSounds] = useState<SoundKey[]>([])
+  const [soundOrder, setSoundOrder] = useState<SoundKey[]>(soundKeys)
   const contextRef = useRef<AudioContext | null>(null)
   const stopsRef = useRef<Partial<Record<SoundKey, () => void>>>({})
   const t = copy[locale]
@@ -200,7 +212,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
     contextRef.current = context
     if (context.state === 'suspended') await context.resume()
     const master = context.createGain()
-    master.gain.value = key === 'birds' ? 0.14 : key === 'garden' ? 0.09 : 0.2
+    master.gain.value = ['birds','dawnBirds','jungle'].includes(key) ? 0.12 : ['fire','chimes','bowls','atabaque'].includes(key) ? 0.1 : 0.16
     master.connect(context.destination)
     const nodes: AudioNode[] = []
     let interval: number | undefined
@@ -238,38 +250,44 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
       nodes.push(oscillator, gain)
     }
 
-    if (key === 'rain') {
-      addNoise(1150, 'lowpass', 0.22)
-      addNoise(4200, 'highpass', 0.035)
-    } else if (key === 'wind') {
-      addNoise(260, 'lowpass', 0.42)
-      const lfo = context.createOscillator()
-      const depth = context.createGain()
-      const gain = nodes.find((node) => node instanceof GainNode) as GainNode | undefined
-      lfo.frequency.value = 0.12
-      depth.gain.value = 0.11
-      if (gain) lfo.connect(depth).connect(gain.gain)
-      lfo.start()
-      nodes.push(lfo, depth)
-    } else if (key === 'birds') {
-      const playBirds = () => {
-        if (disposed) return
-        chirp(1800 + Math.random() * 1000, 0.16)
-        if (Math.random() > 0.42) chirp(2300 + Math.random() * 1200, 0.12, 0.22)
-        if (Math.random() > 0.65) chirp(1500 + Math.random() * 900, 0.18, 0.48)
-      }
-      playBirds()
-      interval = window.setInterval(playBirds, 1900 + Math.random() * 1400)
-    } else {
-      const playGarden = () => {
-        if (disposed) return
-        const notes = [659.25, 783.99, 987.77, 1174.66, 880]
-        const note = notes[Math.floor(Math.random() * notes.length)]
-        chirp(note, 1.6)
-      }
-      playGarden()
-      interval = window.setInterval(playGarden, 2800 + Math.random() * 1800)
-      addNoise(7000, 'highpass', 0.012)
+
+    const randomChirp = (low: number, high: number, duration = 0.15, delay = 0) => chirp(low + Math.random() * (high - low), duration, delay)
+    const repeat = (fn: () => void, min: number, max = min) => { fn(); interval = window.setInterval(fn, min + Math.random() * (max - min)) }
+    const addLowDrone = (frequency: number, volume = 0.12) => {
+      const oscillator = context.createOscillator(), gain = context.createGain(), lfo = context.createOscillator(), modulation = context.createGain()
+      oscillator.type = 'sine'; oscillator.frequency.value = frequency; gain.gain.value = volume
+      lfo.frequency.value = 0.07 + Math.random() * 0.12; modulation.gain.value = volume * 0.65
+      lfo.connect(modulation).connect(gain.gain); oscillator.connect(gain).connect(master); oscillator.start(); lfo.start()
+      nodes.push(oscillator, gain, lfo, modulation)
+    }
+    const addPulse = (frequency: number, duration = 0.12, volume = 0.1) => {
+      const oscillator = context.createOscillator(), gain = context.createGain()
+      oscillator.type = 'triangle'; oscillator.frequency.value = frequency
+      gain.gain.setValueAtTime(0.0001, context.currentTime); gain.gain.exponentialRampToValueAtTime(volume, context.currentTime + 0.012); gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
+      oscillator.connect(gain).connect(master); oscillator.start(); oscillator.stop(context.currentTime + duration + 0.02); nodes.push(oscillator, gain)
+    }
+    switch (key) {
+      case 'rain': addNoise(1150,'lowpass',0.22); addNoise(4200,'highpass',0.035); break
+      case 'wind': case 'meadow': case 'roseStems': addNoise(key === 'wind' ? 260 : 420,'lowpass',key === 'roseStems' ? 0.12 : 0.26); addLowDrone(58,0.035); break
+      case 'birds': case 'dawnBirds': case 'jungle':
+        repeat(() => { const count = key === 'birds' ? 2 : 4; for (let i=0;i<count;i++) randomChirp(key==='jungle'?800:1500,key==='jungle'?3200:3400,0.13+Math.random()*0.12,i*0.12) }, key==='birds'?1700:900, key==='birds'?3200:1700)
+        if (key==='jungle') addNoise(900,'lowpass',0.045); break
+      case 'cicadas': addNoise(5800,'highpass',0.055); addLowDrone(4200,0.025); repeat(()=>{randomChirp(3900,6500,0.8);randomChirp(4200,7000,0.65,0.2)},650,1500); break
+      case 'fire': addNoise(950,'lowpass',0.09); repeat(()=>addPulse(180+Math.random()*500,0.025+Math.random()*0.06,0.05+Math.random()*0.08),90,420); break
+      case 'wood': addLowDrone(74,0.018); repeat(()=>{addPulse(90+Math.random()*80,0.18,0.04);randomChirp(130,260,0.45,0.08)},2400,6000); break
+      case 'irrigation': case 'leafDrops': addNoise(1300,'lowpass',0.035); repeat(()=>{randomChirp(900,1900,0.045);randomChirp(1200,2300,0.055,0.09)},260,950); break
+      case 'chimes': repeat(()=>{const f=[523.25,659.25,783.99,987.77,1174.66][Math.floor(Math.random()*5)];chirp(f,1.8);if(Math.random()>0.45)chirp(f*1.5,1.4,0.16)},850,2600); break
+      case 'stream': case 'wetGarden': addNoise(key==='stream'?1600:900,'lowpass',key==='stream'?0.16:0.06);addNoise(4500,'highpass',0.025);repeat(()=>randomChirp(500,1300,0.16),450,1100);break
+      case 'thunder': addNoise(150,'lowpass',0.08); repeat(()=>{addPulse(45+Math.random()*20,1.5,0.035)},5000,12000);break
+      case 'bees': case 'bumblebees': addLowDrone(key==='bees'?110:82,0.045);addNoise(360,'bandpass',0.045);repeat(()=>randomChirp(75,125,0.32),300,900);break
+      case 'tribal': case 'atabaque': repeat(()=>{addPulse(key==='atabaque'?92:110,0.16,0.13);if(Math.random()>0.35)addPulse(180+Math.random()*60,0.07,0.08)},key==='atabaque'?510:850,key==='atabaque'?650:1250);addNoise(1200,'bandpass',0.025);break
+      case 'bowls': repeat(()=>{const f=[174.61,220,261.63,329.63][Math.floor(Math.random()*4)];chirp(f,3.2);chirp(f*2.01,2.8,0.04)},2200,4200);break
+      case 'crickets': case 'frogs': repeat(()=>{if(key==='frogs'){addPulse(115+Math.random()*35,0.23,0.07);addPulse(100+Math.random()*25,0.2,0.05)}else{randomChirp(2600,4200,0.09);randomChirp(2800,4300,0.08,0.13)}},key==='frogs'?1500:350,key==='frogs'?3200:900);if(key==='frogs')addNoise(500,'lowpass',0.025);break
+      case 'ocean': case 'iguazu': addNoise(key==='ocean'?550:950,'lowpass',key==='ocean'?0.16:0.25);addNoise(2200,'highpass',0.045);addLowDrone(key==='ocean'?42:68,0.045);break
+      case 'guitarCafe': addNoise(420,'lowpass',0.025);repeat(()=>{const f=[196,246.94,293.66,392][Math.floor(Math.random()*4)];chirp(f,0.5);chirp(f*1.25,0.42,0.025);chirp(f*1.5,0.4,0.05)},650,1500);break
+      case 'rioCafe': addNoise(700,'bandpass',0.035);repeat(()=>{randomChirp(300,650,0.11);randomChirp(500,1100,0.09,0.18)},420,1200);break
+      case 'carnival': addNoise(650,'bandpass',0.035);repeat(()=>{addPulse(95+Math.random()*90,0.12,0.08);randomChirp(400,1300,0.12,0.14)},260,580);break
+      case 'forest': case 'brazilMorning': addNoise(420,'lowpass',0.075);addLowDrone(key==='forest'?55:82,0.025);repeat(()=>randomChirp(1100,2600,0.16),key==='forest'?2500:700,key==='forest'?5200:1600);break
     }
 
     stopsRef.current[key] = () => {
@@ -315,6 +333,12 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
     void contextRef.current?.close()
   }, [])
 
+  const enterGarden = () => {
+    const shuffled = [...soundKeys]
+    for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]] }
+    setSoundOrder(shuffled); setQuoteIndex(Math.floor(Math.random() * 50)); setIsOpen(true)
+  }
+
   const nextQuote = () => setQuoteIndex((current) => {
     const offset = 1 + Math.floor(Math.random() * 49)
     return (current + offset) % quotes[locale].length
@@ -333,7 +357,7 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
           <p className="eyebrow">{t.kicker}</p>
           <h2 id="silence-invitation-title">{t.title}</h2>
           <p>{t.intro}</p>
-          <button type="button" className="silence-enter-button" onClick={() => { setQuoteIndex(Math.floor(Math.random() * 50)); setIsOpen(true) }}>{t.open}<span aria-hidden="true">↗</span></button>
+          <button type="button" className="silence-enter-button" onClick={enterGarden}>{t.open}<span aria-hidden="true">↗</span></button>
         </div>
       </section>
       {isOpen && <div className="silence-modal" role="dialog" aria-modal="true" aria-labelledby="silence-title">
@@ -354,12 +378,9 @@ export default function SilenceGarden({ locale = 'pt' }: { locale?: Locale }) {
               <span className="silence-quote-rule" />
             </section>
             <section className="silence-sounds" aria-labelledby="silence-sounds-title">
-              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / 4</span></div>
+              <div className="silence-sounds-heading"><div><p className="eyebrow">{t.soundEyebrow}</p><h3 id="silence-sounds-title">{t.sounds}</h3></div><span className="silence-sounds-count">{activeSounds.length} / {soundKeys.length}</span></div>
               <div className="silence-sound-grid">
-                <SoundButton sound="rain" icon={CloudRain} label={t.rain} />
-                <SoundButton sound="birds" icon={Bird} label={t.birds} />
-                <SoundButton sound="wind" icon={Wind} label={t.wind} />
-                <SoundButton sound="garden" icon={Leaf} label={t.garden} />
+                {soundOrder.map((sound) => { const Icon = soundIcons[sound]; return <SoundButton key={sound} sound={sound} icon={Icon} label={soundLabels[locale][sound]} /> })}
               </div>
               <p className="silence-sound-hint">{t.hint}</p>
             </section>
