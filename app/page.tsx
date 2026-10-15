@@ -249,12 +249,25 @@ function FlagIcon({ code }: { code: Locale }) {
 export default function Page() {
   const [locale, setLocale] = useState<Locale>('pt')
   const [localeReady, setLocaleReady] = useState(false)
+  const [languageTransition, setLanguageTransition] = useState<'visible' | 'out' | 'in'>('visible')
   const [isPlaying, setIsPlaying] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [quoteIndex, setQuoteIndex] = useState(0)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const previousTrackRef = useRef<number>(-1)
   const t = translations[locale]
+
+  const changeLocale = (nextLocale: Locale) => {
+    if (nextLocale === locale || languageTransition !== 'visible') return
+    setLanguageTransition('out')
+    window.setTimeout(() => {
+      setLocale(nextLocale)
+      document.title = pageTitles[nextLocale]
+      document.documentElement.lang = nextLocale === 'pt' ? 'pt-BR' : nextLocale
+      setLanguageTransition('in')
+      window.setTimeout(() => setLanguageTransition('visible'), 20)
+    }, 250)
+  }
 
   const pageTitles: Record<Locale, string> = {
     pt: 'Rosas do Deserto | Coleção Botânica',
@@ -338,7 +351,7 @@ export default function Page() {
   }
 
   return (
-    <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale} style={{ visibility: localeReady ? 'visible' : 'hidden' }}>
+    <main className={`site-shell${languageTransition === 'out' ? ' language-fade-out' : languageTransition === 'in' ? ' language-fade-in' : ''}`} lang={locale === 'pt' ? 'pt-BR' : locale} style={{ visibility: localeReady ? 'visible' : 'hidden' }}>
       <title>{pageTitles[locale]}</title>
       <header className="site-header">
         <a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true">🌺</span><span>{t.brand}</span></a>
@@ -348,7 +361,7 @@ export default function Page() {
         <div className="header-tools">
           <a className="mobile-garden-link" href={`/zen_garden?lang=${locale}`} onClick={() => { const audio = audioRef.current; if (audio && !audio.paused) { sessionStorage.setItem("gardenMusicResume", JSON.stringify({ src: audio.src, currentTime: audio.currentTime, wasPlaying: true })); audio.pause() } else { sessionStorage.setItem("gardenMusicResume", JSON.stringify({ src: audio?.src || "", currentTime: audio?.currentTime || 0, wasPlaying: false })) } }} aria-label={locale === 'ru' ? 'Сад мыслей' : locale === 'en' ? 'Garden of thoughts' : 'Jardim de pensamentos'} title={locale === 'ru' ? 'Сад мыслей' : locale === 'en' ? 'Garden of thoughts' : 'Jardim de pensamentos'}>✳</a><button className="audio-button header-audio-button" onClick={toggleAudio} aria-label={isPlaying ? t.pause : t.play} title={isPlaying ? t.pause : t.play} aria-pressed={isPlaying}>{isPlaying ? <Pause /> : <Play />} <span>{isPlaying ? t.pause : t.play}</span></button>
           <div className="language-switch" aria-label="Choose language">
-            {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => { setLocale(code); document.title = pageTitles[code]; document.documentElement.lang = code === 'pt' ? 'pt-BR' : code }}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
+            {([{ code: 'pt', flag: '🇧🇷', label: 'Português brasileiro' }, { code: 'ru', flag: '🇷🇺', label: 'Русский' }, { code: 'en', flag: '🇺🇸', label: 'English (United States)' }] as { code: Locale; flag: string; label: string }[]).map(({ code, flag, label }) => <button key={code} type="button" className={locale === code ? 'active' : ''} aria-label={label} title={label} aria-pressed={locale === code} onClick={() => changeLocale(code)} disabled={languageTransition !== 'visible'}><FlagIcon code={code} /><span>{code.toUpperCase()}</span></button>)}
           </div>
           <button className="menu-button" aria-label={t.menu}><Menu /></button>
         </div>
