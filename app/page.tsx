@@ -248,6 +248,7 @@ function FlagIcon({ code }: { code: Locale }) {
 
 export default function Page() {
   const [locale, setLocale] = useState<Locale>('pt')
+  const [localeReady, setLocaleReady] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [quoteIndex, setQuoteIndex] = useState(0)
@@ -264,6 +265,7 @@ export default function Page() {
   useEffect(() => {
     const savedLocale = new URLSearchParams(window.location.search).get('lang')
     if (savedLocale === 'ru' || savedLocale === 'en' || savedLocale === 'pt') setLocale(savedLocale)
+    setLocaleReady(true)
   }, [])
 
   useEffect(() => {
@@ -336,7 +338,7 @@ export default function Page() {
   }
 
   return (
-    <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale}>
+    <main className="site-shell" lang={locale === 'pt' ? 'pt-BR' : locale} style={{ visibility: localeReady ? 'visible' : 'hidden' }}>
       <title>{pageTitles[locale]}</title>
       <header className="site-header">
         <a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true">🌺</span><span>{t.brand}</span></a>
