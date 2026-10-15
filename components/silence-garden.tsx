@@ -261,7 +261,7 @@ export default function SilenceGarden({ locale = 'pt', standalone = false }: { l
     stopAllSounds()
     if (standalone) window.location.href = `/?lang=${locale}`
     else setIsOpen(false)
-  }, [stopAllSounds, standalone])
+  }, [stopAllSounds, standalone, locale])
 
   useEffect(() => {
     if (!isOpen) return
