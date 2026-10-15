@@ -262,6 +262,11 @@ export default function Page() {
   }
 
   useEffect(() => {
+    const savedLocale = new URLSearchParams(window.location.search).get('lang')
+    if (savedLocale === 'ru' || savedLocale === 'en' || savedLocale === 'pt') setLocale(savedLocale)
+  }, [])
+
+  useEffect(() => {
     setQuoteIndex(Math.floor(Math.random() * translations[locale].quotes.length))
     document.title = pageTitles[locale]
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale
