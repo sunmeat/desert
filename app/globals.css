@@ -250,3 +250,23 @@ h1 em, h2 em { font-family: 'Playfair Display', serif; font-weight: 400; letter-
 @media (max-width: 700px) {
   .language-switch button .language-flag { width: 18px; height: 12px; }
 }
+
+
+.site-shell {
+  transition: opacity 250ms ease;
+}
+
+.site-shell.language-fade-out,
+.site-shell.language-fade-in {
+  opacity: 0;
+}
+
+.language-switch button:disabled {
+  cursor: wait;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell {
+    transition-duration: 0.01ms;
+  }
+}
