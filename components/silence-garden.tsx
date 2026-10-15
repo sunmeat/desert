@@ -259,7 +259,7 @@ export default function SilenceGarden({ locale = 'pt', standalone = false }: { l
 
   const closeGarden = useCallback(() => {
     stopAllSounds()
-    if (standalone) window.location.href = '/'
+    if (standalone) window.location.href = `/?lang=${locale}`
     else setIsOpen(false)
   }, [stopAllSounds, standalone])
 
@@ -293,7 +293,7 @@ export default function SilenceGarden({ locale = 'pt', standalone = false }: { l
         }))
         if (!music.paused) music.pause()
       }
-      window.location.href = '/zen_garden'
+      window.location.href = `/zen_garden?lang=${locale}`
       return
     }
     const shuffled = [...soundKeys]
