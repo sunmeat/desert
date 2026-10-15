@@ -1,16 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SilenceGarden from '@/components/silence-garden'
 
 type Locale = 'pt' | 'ru' | 'en'
 
 export default function ZenGardenPage() {
-  const [locale] = useState<Locale>(() => {
-    if (typeof window === 'undefined') return 'pt'
+  const [locale, setLocale] = useState<Locale>('pt')
+
+  useEffect(() => {
     const value = new URLSearchParams(window.location.search).get('lang')
-    return value === 'ru' || value === 'en' ? value : 'pt'
-  })
+    if (value === 'ru' || value === 'en' || value === 'pt') setLocale(value)
+  }, [])
 
   return (
     <main className="zen-garden-page" lang={locale === 'pt' ? 'pt-BR' : locale}>
